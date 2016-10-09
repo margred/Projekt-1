@@ -1,0 +1,14 @@
+Die Software, die in diesem Projekt entstehen und letztendlich entwickelt werden soll, wird Studenten beim erfolgreichen Studieren helfen.
+
+Punkt 1.0: Welche Probleme können auftauchen?
+
+1. Studenten, die von der Schule direkt auf eine Universität wechseln, stoßen oftmals auf Probleme, denen sie zu Schulzeiten nicht begegnet sind.
+	
+a) Nacharbeiten ist essentiell. Wenn etwas in der Vorlesung nicht oder nur halb verstanden wurde, muss es nachgearbeitet werden, daran führt kein Weg vorbei. Es kann niemand außer dem Studenten selbst auf eben jenen Rücksicht nehmen. Wie arbeitet man erfolgreich nach oder sogar vor?
+
+b) Alleine arbeiten hilft nicht, wenn es grundlegende Verständnisprobleme gibt. Lerngruppen können sehr zum erfolgreichen lernen beihelfen. Wie findet man die richtige Lerngruppe?
+
+c) Arbeit vor sich herschieben hat absolut keinen Nutzen, sondern wirkt sich meist negativ auf einen erfolgreichen Lernprozess aus. Wenn es Hausaufgaben gibt, sollte man diese auch bearbeiten. Wie überwindet man diese Prokrastinationsfalle? Motivationshilfen?
+
+d) Zu spät anfangen, effektiv zu lernen, dazu muss man eigentlich nicht viel sagen. Hängt dicht mit Punkt a) und c) zusammen, sollte aber doch lieber als Einzelpunkt angeführt werden. Denn nur Vorlesungsstoff nachholen ist nicht automatisch gelernt und verstanden. Lernhilfen?
+
