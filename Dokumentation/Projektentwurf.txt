@@ -1,33 +1,33 @@
------------------------------------------------------
-| Projektentwurf - Version 1.2 - 09.10.2016 - 15:07 |
------------------------------------------------------
+=======================================
+=== Projektentwurf, v_2, 2016-10.09 ===
+=======================================
 
 //Projektidee
 
 Die Software, die in diesem Projekt entstehen und letztendlich entwickelt werden soll, wird Studenten beim erfolgreichen Studieren helfen.
 
-///Punkt 1.0: Welche Probleme können auftauchen?
+Punkt 1: Welche Probleme können auftauchen?
 
-//1. Studenten, die von der Schule direkt auf eine Universität wechseln, stoßen oftmals auf Probleme, denen sie zu Schulzeiten nicht begegnet sind.
+1.1 Studenten, die von der Schule direkt auf eine Universität wechseln, stoßen oftmals auf Probleme, denen sie zu Schulzeiten nicht begegnet sind.
 	
-/a) Nacharbeiten ist essentiell. Wenn etwas in der Vorlesung nicht oder nur halb verstanden wurde, muss es nachgearbeitet werden, daran führt kein Weg vorbei. Es kann niemand außer dem Studenten selbst auf eben jenen Rücksicht nehmen. Wie arbeitet man erfolgreich nach oder sogar vor?
+1.1.a Nacharbeiten ist essentiell. Wenn etwas in der Vorlesung nicht oder nur halb verstanden wurde, muss es nachgearbeitet werden, daran führt kein Weg vorbei. Es kann niemand außer dem Studenten selbst auf eben jenen Rücksicht nehmen. Wie arbeitet man erfolgreich nach oder sogar vor?
 
-/b) Alleine arbeiten hilft nicht, wenn es grundlegende Verständnisprobleme gibt. Lerngruppen können sehr zum erfolgreichen lernen beihelfen. Wie findet man die richtige Lerngruppe?
+1.1.b Alleine arbeiten hilft nicht, wenn es grundlegende Verständnisprobleme gibt. Lerngruppen können sehr zum erfolgreichen lernen beihelfen. Wie findet man die richtige Lerngruppe?
 
-/c) Arbeit vor sich herschieben hat absolut keinen Nutzen, sondern wirkt sich meist negativ auf einen erfolgreichen Lernprozess aus. Wenn es Hausaufgaben gibt, sollte man diese auch bearbeiten. Wie überwindet man diese Prokrastinationsfalle? Motivationshilfen?
+1.1.c Arbeit vor sich herschieben hat absolut keinen Nutzen, sondern wirkt sich meist negativ auf einen erfolgreichen Lernprozess aus. Wenn es Hausaufgaben gibt, sollte man diese auch bearbeiten. Wie überwindet man diese Prokrastinationsfalle? Motivationshilfen?
 
-/d) Zu spät anfangen, effektiv zu lernen, dazu muss man eigentlich nicht viel sagen. Hängt dicht mit Punkt a) und c) zusammen, sollte aber doch lieber als Einzelpunkt angeführt werden. Denn nur Vorlesungsstoff nachholen ist nicht automatisch gelernt und verstanden. Lernhilfen?
+1.1.d Zu spät anfangen, effektiv zu lernen, dazu muss man eigentlich nicht viel sagen. Hängt dicht mit Punkt a) und c) zusammen, sollte aber doch lieber als Einzelpunkt angeführt werden. Denn nur Vorlesungsstoff nachholen ist nicht automatisch gelernt und verstanden. Lernhilfen?
 
-/e) Was, wenn der Stress zu viel wird? Wie wieder auf den Boden kommen? Was hilft zur Beruhigung der Nerven, damit wieder erfolgreich die Konzentration zum Lernen hergestellt werden kann?
+1.1.e Was, wenn der Stress zu viel wird? Wie wieder auf den Boden kommen? Was hilft zur Beruhigung der Nerven, damit wieder erfolgreich die Konzentration zum Lernen hergestellt werden kann?
 
-//2. Nach Berufsausbildung und (mehrjähriger) Arbeit in diesem Feld wird der Entschluss gefasst, zu studieren. 
+1.2 Nach Berufsausbildung und (mehrjähriger) Arbeit in diesem Feld wird der Entschluss gefasst, zu studieren. 
 
-/a) Die Schulzeit liegt eventuell weit zurück, es greifen alle entsprechenden Aspekte aus Punkt 1.
+1.2.a Die Schulzeit liegt eventuell weit zurück, es greifen alle entsprechenden Aspekte aus Punkt 1.
 
-///Punkt 2.0: Der Aufbau der Software
+Punkt 2: Der Aufbau der Software
 
-Es soll kein Nachschlagewerk sein, so viel ist vorgegeben und steht fest. Für die jeweiligen Probleme muss es jeweils kleine Apps(?) geben. Gerade bei der Lerngruppenfindung kam mir die Idee. Ähnlich wie eine Terminfindungsapp, allerdings auf die Lerninteressen der suchenden Studenten abgestimmt.
+2.1 Es soll kein Nachschlagewerk sein, so viel ist vorgegeben und steht fest. Für die jeweiligen Probleme muss es jeweils kleine Apps(?) geben. Gerade bei der Lerngruppenfindung kam mir die Idee. Ähnlich wie eine Terminfindungsapp, allerdings auf die Lerninteressen der suchenden Studenten abgestimmt.
 
-Bei Punkt 1e) schwebt mir eine eventuell interaktive Software zur Ablenkung vor. Es gibt viele, wirklich viele, kleinere Dinge im www, die zur Beruhigung der Nerven helfen. Es sollte machbar sein, einen kleinen Programmteil herzustellen, der Tipps und Tricks umsetzt und dem Studenten hilft. Sand einfärben, Galaxien erstellen, mit einem sich entfaltenden geometrischen Körper entspannt Atmen. Etwas in diese Richtung.
+2.2 Bei Punkt 1e) schwebt mir eine eventuell interaktive Software zur Ablenkung vor. Es gibt viele, wirklich viele, kleinere Dinge im www, die zur Beruhigung der Nerven helfen. Es sollte machbar sein, einen kleinen Programmteil herzustellen, der Tipps und Tricks umsetzt und dem Studenten hilft. Sand einfärben, Galaxien erstellen, mit einem sich entfaltenden geometrischen Körper entspannt Atmen. Etwas in diese Richtung.
 
-Wie macht man richtig Notizen? Helfen Notizen jedem Studenten gleich? Was ist wirklich für den individuellen Stundenten wichtig? Ein Programmteil sollte sich darauf spezialisieren, den Lerntyp des Studenten zu analysieren und entsprechende Tipps auszuspucken. Eine Art Quiz? Da lässt sich auf jeden Fall viel programmieren.
+2.3 Wie macht man richtig Notizen? Helfen Notizen jedem Studenten gleich? Was ist wirklich für den individuellen Stundenten wichtig? Ein Programmteil sollte sich darauf spezialisieren, den Lerntyp des Studenten zu analysieren und entsprechende Tipps auszuspucken. Eine Art Quiz? Da lässt sich auf jeden Fall viel programmieren.
