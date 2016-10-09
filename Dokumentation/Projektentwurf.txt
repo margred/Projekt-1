@@ -2,11 +2,15 @@
 === Projektentwurf, v_2, 2016-10.09 ===
 =======================================
 
-//Projektidee
+=============
+=Projektidee=
+=============
 
 Die Software, die in diesem Projekt entstehen und letztendlich entwickelt werden soll, wird Studenten beim erfolgreichen Studieren helfen.
 
-Punkt 1: Welche Probleme können auftauchen?
+=============================================
+=Punkt 1: Welche Probleme können auftauchen?=
+=============================================
 
 1.1 Studenten, die von der Schule direkt auf eine Universität wechseln, stoßen oftmals auf Probleme, denen sie zu Schulzeiten nicht begegnet sind.
 	
@@ -24,7 +28,9 @@ Punkt 1: Welche Probleme können auftauchen?
 
 1.2.a Die Schulzeit liegt eventuell weit zurück, es greifen alle entsprechenden Aspekte aus Punkt 1.
 
-Punkt 2: Der Aufbau der Software
+============================================
+=Punkt 2: Ideen für den Aufbau der Software=
+============================================
 
 2.1 Es soll kein Nachschlagewerk sein, so viel ist vorgegeben und steht fest. Für die jeweiligen Probleme muss es jeweils kleine Apps(?) geben. Gerade bei der Lerngruppenfindung kam mir die Idee. Ähnlich wie eine Terminfindungsapp, allerdings auf die Lerninteressen der suchenden Studenten abgestimmt.
 
