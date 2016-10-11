@@ -37,3 +37,42 @@ Die Software, die in diesem Projekt entstehen und letztendlich entwickelt werden
 2.2 Bei Punkt 1e) schwebt mir eine eventuell interaktive Software zur Ablenkung vor. Es gibt viele, wirklich viele, kleinere Dinge im www, die zur Beruhigung der Nerven helfen. Es sollte machbar sein, einen kleinen Programmteil herzustellen, der Tipps und Tricks umsetzt und dem Studenten hilft. Sand einfärben, Galaxien erstellen, mit einem sich entfaltenden geometrischen Körper entspannt Atmen. Etwas in diese Richtung.
 
 2.3 Wie macht man richtig Notizen? Helfen Notizen jedem Studenten gleich? Was ist wirklich für den individuellen Stundenten wichtig? Ein Programmteil sollte sich darauf spezialisieren, den Lerntyp des Studenten zu analysieren und entsprechende Tipps auszuspucken. Eine Art Quiz? Da lässt sich auf jeden Fall viel programmieren.
+
+===================================
+=== Feedback Alpers, 2016-10-11 ===
+===================================
+
+=== 1.) Inhaltliches
+
+== 1.1.) Sie formulieren hier vorrangig Fragen, gehen dann aber nicht auf alle ein. Selbst wenn Sie irgendwo keine Idee haben, sollten Sie das ausformulieren.
+
+== 1.2.) Schauen wir uns das mal im Detail an:
+1.1.a Nacharbeiten ist essentiell. ...
+
+Hier müssen Sie sich überlegen, was eine Software anbieten kann und was nicht. Denken Sie an dieser Stelle auch daran, dass Sie mittels einer vernetzen Software auch andere Menschen integrieren können. Ergo müssen Sie hier überlegen, wie anderen Menschen einzelne Nutzer beim Nacharbeiten unterstützen können und ob bzw. wie das in einer Software einbindbar ist.
+
+1.1.b Alleine arbeiten hilft nicht, wenn es grundlegende Verständnisprobleme gibt. Lerngruppen können sehr zum erfolgreichen lernen beihelfen. Wie findet man die richtige Lerngruppe?
+
+Auch hier gilt: Was kann eine Software enthalten, dass dabei unterstützt? Was kann eine Software enthalten, das eine Alternative anbietet?
+
+...
+
+2.1 Es soll kein Nachschlagewerk sein, so viel ist vorgegeben und steht fest. Für die jeweiligen Probleme muss es jeweils kleine Apps(?) geben. ...
+
+Zum Begriff der App hatte ich im Buch bereits viel geschrieben. Sie fassen mit diesen zwei Sätzen lediglich das zusammen, was schon in der Aufgabenstellung steht, wobei Ihre Lösung eine gesamte Webanwendung sein soll.
+
+... Gerade bei der Lerngruppenfindung kam mir die Idee. Ähnlich wie eine Terminfindungsapp, allerdings auf die Lerninteressen der suchenden Studenten abgestimmt.
+
+Schade, dass Sie hier noch nichts ausgearbeitet haben, denn das wäre ein sinnvoller Teil Ihrer Anwendung.
+
+2.2 Bei Punkt 1e) schwebt mir eine eventuell interaktive Software zur Ablenkung vor. ...
+
+Ihre Software soll Studierende dabei unterstützen, erfolgreich zu studieren. Hier gehen Sie in den Bereich der Psychologie. Das wäre etwas für Psychologie-Studierende.
+
+== 1.3.) Vorrangig sind Sie hier bei Fragen, die so von den TSE-Tutoren besprochen werden. Das liegt natürlich in der Natur der Sache. Die Lösungen dort haben in aller Regel nichts mit Software zu tun, sondern mit der persönlichen Entwicklung.
+
+Momentan macht es den Eindruck, als wenn Sie sich zu sehr an den Lösungen der TSE-Tutoren orientieren und noch zu wenig an Software denken.
+
+=== 2.) Formales ===
+
+Da Sie zurzeit noch keine Beschreibung der Software notiert haben ist leider auch keine Wertung möglich.
