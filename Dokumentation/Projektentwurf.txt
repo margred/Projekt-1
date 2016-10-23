@@ -1,5 +1,5 @@
 =======================================
-=== Projektentwurf, v_2, 2016-10.09 ===
+=== Projektentwurf, v_3, 2016-10-23 ===
 =======================================
 
 =============
@@ -76,3 +76,108 @@ Momentan macht es den Eindruck, als wenn Sie sich zu sehr an den Lösungen der TS
 === 2.) Formales ===
 
 Da Sie zurzeit noch keine Beschreibung der Software notiert haben ist leider auch keine Wertung möglich.
+
+============================================
+============================================
+
+=============
+=Projektidee=
+=============
+
+Die Software, die in diesem Projekt entstehen und letztendlich entwickelt werden soll, wird Studenten beim erfolgreichen Studieren helfen.
+
+================================
+=Punkt 1: Was tut das Programm?=
+================================
+--------------------------
+-1.1 Lernplan erstellen-
+--------------------------
+
+d.h.
+
+- Semesterübersicht
+- Vorlesungsübersicht
+- Labor- bzw. Praktikumsübersicht
+- Hausaufgabenübersicht
+- Lerninhalte, auf die sich vorbereitet werden muss
+- Lerninhalte, die nachgearbeitet werden müssen
+- verfügbare und verplante Zeit managen
+- flexible Zeiteinteilung, ermöglicht mehrere Einträge pro Tag
+- Aufgabenplaner, Einträge lassen sich abhaken/streichen
+- Fazit am Ende des Tages
+
+------------------------
+-1.2 Lerngruppen finden-
+------------------------
+
+- Semesterübersicht/Vorlesungsübersicht zur Orientierung
+- gezielt gewünschte Themenbereich suchen/finden
+- interessierte Studierende können sich für Themenbereiche eintragen
+- Wertungssystem des Wissensstandes (Selbsteinschätzung)
+- Programm organisiert Gruppenfindung basierend auf Selbsteinschätzung (garatiert gleichmäßige Verteilung)
+- Terminfindung über Kalenderansicht (Selbsteintragung an passenden Tagen, zu passenden Zeiten)
+- Raumübersicht basierend auf Vorlesungsplan (wann ist wo Platz zum Lernen, wie viele Leute passen rein)
+- Fazit: wer/wann/wo
+
+---------------------------
+- 1.3 Notizen organisieren-
+---------------------------
+
+- Upload von den eigenen Mitschriften (Bild- oder Textdateien)
+- Download von den gesammelten Mitschriften
+- Austausch von eigenen Erarbeitungen
+- Übersicht über vergangene Vorlesungen
+- Übersicht über gesammtelte Mitschriften/Erarbeitungen
+- Textbearbeitung über das Programm möglich
+- mehrere Anwender bearbeiten dieselbe Datei
+- Zugriffsrechte für eigene Dokumente verwalten
+
+---------------------------
+-1.4 Klausurenphase planen-
+---------------------------
+
+- Übersicht über Lernfortschritt mit Ziel (Printables für den Ordner)
+- Klausurenplan verwalten und organisieren (wann, wo, wer, was)
+- detaillierte Tagespläne mit Lern- und Pauseeinheiten
+
+
+============================================
+=Punkt 2: Ideen für den Aufbau der Software=
+============================================
+
+--------------
+-2.1 Lernplan-
+--------------
+
+- interaktive Kalenderansicht
+- Kategorien mit Unterpunkten (Vorlesung -> Thema -> Praktikum z.B.)
+- Wertungssystem zum Abhaken erledigter Aufgaben/Einträge/Vorhaben
+- (un)erreichte Ziele werden festgehalten und im Fazit zusammengefasst (Zusammenfassung)
+
+-----------------------
+-2.2 Lerngruppe finden-
+-----------------------
+
+- interaktive Kalenderansicht (z.B. wie doodle)
+- Navigation über Studiengang, Semester, Vorlesung, Thema zur Studierendenübersicht
+- eigene Profilerstellung für die Nutzung
+- Profilerstellung umfasst Studiengang, Semester, Vorlesung, Thema und Wissensstand
+- individuelle Wahl persönlich passender Termine
+- Gruppenorganisation durch Bewertung der Profile und Wunschtermine
+
+--------------------------
+-2.3 Notizen organisieren-
+--------------------------
+
+- klein gehaltenes Filesharing System (z.B. wie google docs/drive, e-learning oder dropbox)
+- Navigation über Studiengang, Semester, Vorlesung, Thema
+- Literaturliste mit Bewertung und Informationen darüber, wo man leihen kann (z.B. Bibliothek oder privat)
+- Editor mit Uploadfunktion für Textdateien, Bilddateien und Text
+
+---------------------------
+-2.4 Klausurenphase planen-
+---------------------------
+
+- interaktive Übersicht über Lernfortschritt (zielorientiert)
+- einsehbare und sich aktuallisierende Tagesziele/Wochenziele bis zu einem Datum
+- Kalenderansicht zur Organisation Teil des Programms
