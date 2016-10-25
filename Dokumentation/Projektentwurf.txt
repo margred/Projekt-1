@@ -181,3 +181,38 @@ d.h.
 - interaktive Übersicht über Lernfortschritt (zielorientiert)
 - einsehbare und sich aktuallisierende Tagesziele/Wochenziele bis zu einem Datum
 - Kalenderansicht zur Organisation Teil des Programms
+
+===================================
+=== Feedback Alpers, 2016-10-11 ===
+===================================
+
+=== 1.) Formales
+
+== 1.1.) Formale Vorgaben bitte beachten
+
+Lesen Sie sich die Nummern 2.2.) und 2.3.) in der Aufgabenstellung durch und setzen Sie die Vorgaben um.
+
+=== 2.) Inhaltliches
+
+== 2.1.) Sehr gut
+
+Mit dieser Aufstellung ist es sehr einfach, eine Struktur zu entwickeln. Also nichts wie los.
+
+=== 3.) Verteilte Anwendung
+
+ist zwar noch nicht explizit ausformuliert, aber implizit klar erkennbar. Bislang beschränken Sie sich hier noch auf Aspekte wie Upload und Download, aber da ist noch viel mehr möglich. (Für den Moment können Sie das aber hinten anstellen.)
+
+=== 4.) Adaptive Anwendung
+
+Leider noch nicht erkennbar. Allerdings sollten Sie im Laufe der Entwicklung die ein oder andere Idee bekommen.
+
+=================================================
+=== Wertung 2: Projektentwurf: gesamt: 5 / 10 ===
+=================================================
+- Knappe aber klare Beschreibung 0 bis 5 Pk.: 5
+- Pro Strategie des Computers, die die individuellen Züge des Spielers/Nutzers adaptiert 0 bis 5 Pk.: 0 
+=== (Malus beim Projektentwurf) ===
+- Werbeslogans u.ä. -5 bis 0 Pk.: 0 
+- Designaspekte -5 bis 0 Pk.: 0 
+- Voraussetzung bekannten Wissens -5 bis 0 Pk.: 0 
+(Dies ist keine abschließende Wertung.)
