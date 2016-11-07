@@ -1,84 +1,27 @@
-=======================================
-=== Projektentwurf, v_3, 2016-10-23 ===
-=======================================
+==============================================================================
+=== Ergänzungen zu 'Verteilten Anwendungen', v_3, [2016-11-07] ===
+==============================================================================
 
-=============
-=Projektidee=
-=============
+----------------------
+-1.5 Belohnungssystem- (Ergänzt: 07.11.16)
+----------------------
 
-Die Software, die in diesem Projekt entstehen und letztendlich entwickelt werden soll, wird Studenten beim erfolgreichen Studieren helfen.
+- Sammeln von Punkten bei kontinuirlichem Lernen
+- Freischaltbare (Lern)Inhalte bei Erreichen von Meilensteinen/Lernzielen
+- Bestenliste
 
-=============================================
-=Punkt 1: Welche Probleme können auftauchen?=
-=============================================
+----------------------
+-2.5 Belohnungssystem- (Ergänzt: 07.11.16)
+----------------------
 
-1.1 Studenten, die von der Schule direkt auf eine Universität wechseln, stoßen oftmals auf Probleme, denen sie zu Schulzeiten nicht begegnet sind.
-	
-1.1.a Nacharbeiten ist essentiell. Wenn etwas in der Vorlesung nicht oder nur halb verstanden wurde, muss es nachgearbeitet werden, daran führt kein Weg vorbei. Es kann niemand außer dem Studenten selbst auf eben jenen Rücksicht nehmen. Wie arbeitet man erfolgreich nach oder sogar vor?
+- Teil der Navigation, Kopf des Programms
+- Immer aktiv
+- täglich automatische Aktivierung
+- Punkte täglich sammeln, sonst Neustart, wieder bei 0 anfangen
+- Möglichkeit, Lernerfolge mit Kommilitonen zu vergleichen
 
-1.1.b Alleine arbeiten hilft nicht, wenn es grundlegende Verständnisprobleme gibt. Lerngruppen können sehr zum erfolgreichen lernen beihelfen. Wie findet man die richtige Lerngruppe?
-
-1.1.c Arbeit vor sich herschieben hat absolut keinen Nutzen, sondern wirkt sich meist negativ auf einen erfolgreichen Lernprozess aus. Wenn es Hausaufgaben gibt, sollte man diese auch bearbeiten. Wie überwindet man diese Prokrastinationsfalle? Motivationshilfen?
-
-1.1.d Zu spät anfangen, effektiv zu lernen, dazu muss man eigentlich nicht viel sagen. Hängt dicht mit Punkt a) und c) zusammen, sollte aber doch lieber als Einzelpunkt angeführt werden. Denn nur Vorlesungsstoff nachholen ist nicht automatisch gelernt und verstanden. Lernhilfen?
-
-1.1.e Was, wenn der Stress zu viel wird? Wie wieder auf den Boden kommen? Was hilft zur Beruhigung der Nerven, damit wieder erfolgreich die Konzentration zum Lernen hergestellt werden kann?
-
-1.2 Nach Berufsausbildung und (mehrjähriger) Arbeit in diesem Feld wird der Entschluss gefasst, zu studieren. 
-
-1.2.a Die Schulzeit liegt eventuell weit zurück, es greifen alle entsprechenden Aspekte aus Punkt 1.
-
-============================================
-=Punkt 2: Ideen für den Aufbau der Software=
-============================================
-
-2.1 Es soll kein Nachschlagewerk sein, so viel ist vorgegeben und steht fest. Für die jeweiligen Probleme muss es jeweils kleine Apps(?) geben. Gerade bei der Lerngruppenfindung kam mir die Idee. Ähnlich wie eine Terminfindungsapp, allerdings auf die Lerninteressen der suchenden Studenten abgestimmt.
-
-2.2 Bei Punkt 1e) schwebt mir eine eventuell interaktive Software zur Ablenkung vor. Es gibt viele, wirklich viele, kleinere Dinge im www, die zur Beruhigung der Nerven helfen. Es sollte machbar sein, einen kleinen Programmteil herzustellen, der Tipps und Tricks umsetzt und dem Studenten hilft. Sand einfärben, Galaxien erstellen, mit einem sich entfaltenden geometrischen Körper entspannt Atmen. Etwas in diese Richtung.
-
-2.3 Wie macht man richtig Notizen? Helfen Notizen jedem Studenten gleich? Was ist wirklich für den individuellen Stundenten wichtig? Ein Programmteil sollte sich darauf spezialisieren, den Lerntyp des Studenten zu analysieren und entsprechende Tipps auszuspucken. Eine Art Quiz? Da lässt sich auf jeden Fall viel programmieren.
-
-===================================
-=== Feedback Alpers, 2016-10-11 ===
-===================================
-
-=== 1.) Inhaltliches
-
-== 1.1.) Sie formulieren hier vorrangig Fragen, gehen dann aber nicht auf alle ein. Selbst wenn Sie irgendwo keine Idee haben, sollten Sie das ausformulieren.
-
-== 1.2.) Schauen wir uns das mal im Detail an:
-1.1.a Nacharbeiten ist essentiell. ...
-
-Hier müssen Sie sich überlegen, was eine Software anbieten kann und was nicht. Denken Sie an dieser Stelle auch daran, dass Sie mittels einer vernetzen Software auch andere Menschen integrieren können. Ergo müssen Sie hier überlegen, wie anderen Menschen einzelne Nutzer beim Nacharbeiten unterstützen können und ob bzw. wie das in einer Software einbindbar ist.
-
-1.1.b Alleine arbeiten hilft nicht, wenn es grundlegende Verständnisprobleme gibt. Lerngruppen können sehr zum erfolgreichen lernen beihelfen. Wie findet man die richtige Lerngruppe?
-
-Auch hier gilt: Was kann eine Software enthalten, dass dabei unterstützt? Was kann eine Software enthalten, das eine Alternative anbietet?
-
-...
-
-2.1 Es soll kein Nachschlagewerk sein, so viel ist vorgegeben und steht fest. Für die jeweiligen Probleme muss es jeweils kleine Apps(?) geben. ...
-
-Zum Begriff der App hatte ich im Buch bereits viel geschrieben. Sie fassen mit diesen zwei Sätzen lediglich das zusammen, was schon in der Aufgabenstellung steht, wobei Ihre Lösung eine gesamte Webanwendung sein soll.
-
-... Gerade bei der Lerngruppenfindung kam mir die Idee. Ähnlich wie eine Terminfindungsapp, allerdings auf die Lerninteressen der suchenden Studenten abgestimmt.
-
-Schade, dass Sie hier noch nichts ausgearbeitet haben, denn das wäre ein sinnvoller Teil Ihrer Anwendung.
-
-2.2 Bei Punkt 1e) schwebt mir eine eventuell interaktive Software zur Ablenkung vor. ...
-
-Ihre Software soll Studierende dabei unterstützen, erfolgreich zu studieren. Hier gehen Sie in den Bereich der Psychologie. Das wäre etwas für Psychologie-Studierende.
-
-== 1.3.) Vorrangig sind Sie hier bei Fragen, die so von den TSE-Tutoren besprochen werden. Das liegt natürlich in der Natur der Sache. Die Lösungen dort haben in aller Regel nichts mit Software zu tun, sondern mit der persönlichen Entwicklung.
-
-Momentan macht es den Eindruck, als wenn Sie sich zu sehr an den Lösungen der TSE-Tutoren orientieren und noch zu wenig an Software denken.
-
-=== 2.) Formales ===
-
-Da Sie zurzeit noch keine Beschreibung der Software notiert haben ist leider auch keine Wertung möglich.
-
-============================================
-============================================
+=========================================
+=========================================
 
 =============
 =Projektidee=
@@ -181,6 +124,84 @@ d.h.
 - interaktive Übersicht über Lernfortschritt (zielorientiert)
 - einsehbare und sich aktuallisierende Tagesziele/Wochenziele bis zu einem Datum
 - Kalenderansicht zur Organisation Teil des Programms
+
+=======================================
+=======================================
+
+=============
+=Projektidee=
+=============
+
+Die Software, die in diesem Projekt entstehen und letztendlich entwickelt werden soll, wird Studenten beim erfolgreichen Studieren helfen.
+
+=============================================
+=Punkt 1: Welche Probleme können auftauchen?=
+=============================================
+
+1.1 Studenten, die von der Schule direkt auf eine Universität wechseln, stoßen oftmals auf Probleme, denen sie zu Schulzeiten nicht begegnet sind.
+	
+1.1.a Nacharbeiten ist essentiell. Wenn etwas in der Vorlesung nicht oder nur halb verstanden wurde, muss es nachgearbeitet werden, daran führt kein Weg vorbei. Es kann niemand außer dem Studenten selbst auf eben jenen Rücksicht nehmen. Wie arbeitet man erfolgreich nach oder sogar vor?
+
+1.1.b Alleine arbeiten hilft nicht, wenn es grundlegende Verständnisprobleme gibt. Lerngruppen können sehr zum erfolgreichen lernen beihelfen. Wie findet man die richtige Lerngruppe?
+
+1.1.c Arbeit vor sich herschieben hat absolut keinen Nutzen, sondern wirkt sich meist negativ auf einen erfolgreichen Lernprozess aus. Wenn es Hausaufgaben gibt, sollte man diese auch bearbeiten. Wie überwindet man diese Prokrastinationsfalle? Motivationshilfen?
+
+1.1.d Zu spät anfangen, effektiv zu lernen, dazu muss man eigentlich nicht viel sagen. Hängt dicht mit Punkt a) und c) zusammen, sollte aber doch lieber als Einzelpunkt angeführt werden. Denn nur Vorlesungsstoff nachholen ist nicht automatisch gelernt und verstanden. Lernhilfen?
+
+1.1.e Was, wenn der Stress zu viel wird? Wie wieder auf den Boden kommen? Was hilft zur Beruhigung der Nerven, damit wieder erfolgreich die Konzentration zum Lernen hergestellt werden kann?
+
+1.2 Nach Berufsausbildung und (mehrjähriger) Arbeit in diesem Feld wird der Entschluss gefasst, zu studieren. 
+
+1.2.a Die Schulzeit liegt eventuell weit zurück, es greifen alle entsprechenden Aspekte aus Punkt 1.
+
+============================================
+=Punkt 2: Ideen für den Aufbau der Software=
+============================================
+
+2.1 Es soll kein Nachschlagewerk sein, so viel ist vorgegeben und steht fest. Für die jeweiligen Probleme muss es jeweils kleine Apps(?) geben. Gerade bei der Lerngruppenfindung kam mir die Idee. Ähnlich wie eine Terminfindungsapp, allerdings auf die Lerninteressen der suchenden Studenten abgestimmt.
+
+2.2 Bei Punkt 1e) schwebt mir eine eventuell interaktive Software zur Ablenkung vor. Es gibt viele, wirklich viele, kleinere Dinge im www, die zur Beruhigung der Nerven helfen. Es sollte machbar sein, einen kleinen Programmteil herzustellen, der Tipps und Tricks umsetzt und dem Studenten hilft. Sand einfärben, Galaxien erstellen, mit einem sich entfaltenden geometrischen Körper entspannt Atmen. Etwas in diese Richtung.
+
+2.3 Wie macht man richtig Notizen? Helfen Notizen jedem Studenten gleich? Was ist wirklich für den individuellen Stundenten wichtig? Ein Programmteil sollte sich darauf spezialisieren, den Lerntyp des Studenten zu analysieren und entsprechende Tipps auszuspucken. Eine Art Quiz? Da lässt sich auf jeden Fall viel programmieren.
+
+===================================
+=== Feedback Alpers, 2016-10-11 ===
+===================================
+
+=== 1.) Inhaltliches
+
+== 1.1.) Sie formulieren hier vorrangig Fragen, gehen dann aber nicht auf alle ein. Selbst wenn Sie irgendwo keine Idee haben, sollten Sie das ausformulieren.
+
+== 1.2.) Schauen wir uns das mal im Detail an:
+1.1.a Nacharbeiten ist essentiell. ...
+
+Hier müssen Sie sich überlegen, was eine Software anbieten kann und was nicht. Denken Sie an dieser Stelle auch daran, dass Sie mittels einer vernetzen Software auch andere Menschen integrieren können. Ergo müssen Sie hier überlegen, wie anderen Menschen einzelne Nutzer beim Nacharbeiten unterstützen können und ob bzw. wie das in einer Software einbindbar ist.
+
+1.1.b Alleine arbeiten hilft nicht, wenn es grundlegende Verständnisprobleme gibt. Lerngruppen können sehr zum erfolgreichen lernen beihelfen. Wie findet man die richtige Lerngruppe?
+
+Auch hier gilt: Was kann eine Software enthalten, dass dabei unterstützt? Was kann eine Software enthalten, das eine Alternative anbietet?
+
+...
+
+2.1 Es soll kein Nachschlagewerk sein, so viel ist vorgegeben und steht fest. Für die jeweiligen Probleme muss es jeweils kleine Apps(?) geben. ...
+
+Zum Begriff der App hatte ich im Buch bereits viel geschrieben. Sie fassen mit diesen zwei Sätzen lediglich das zusammen, was schon in der Aufgabenstellung steht, wobei Ihre Lösung eine gesamte Webanwendung sein soll.
+
+... Gerade bei der Lerngruppenfindung kam mir die Idee. Ähnlich wie eine Terminfindungsapp, allerdings auf die Lerninteressen der suchenden Studenten abgestimmt.
+
+Schade, dass Sie hier noch nichts ausgearbeitet haben, denn das wäre ein sinnvoller Teil Ihrer Anwendung.
+
+2.2 Bei Punkt 1e) schwebt mir eine eventuell interaktive Software zur Ablenkung vor. ...
+
+Ihre Software soll Studierende dabei unterstützen, erfolgreich zu studieren. Hier gehen Sie in den Bereich der Psychologie. Das wäre etwas für Psychologie-Studierende.
+
+== 1.3.) Vorrangig sind Sie hier bei Fragen, die so von den TSE-Tutoren besprochen werden. Das liegt natürlich in der Natur der Sache. Die Lösungen dort haben in aller Regel nichts mit Software zu tun, sondern mit der persönlichen Entwicklung.
+
+Momentan macht es den Eindruck, als wenn Sie sich zu sehr an den Lösungen der TSE-Tutoren orientieren und noch zu wenig an Software denken.
+
+=== 2.) Formales ===
+
+Da Sie zurzeit noch keine Beschreibung der Software notiert haben ist leider auch keine Wertung möglich.
 
 ===================================
 === Feedback Alpers, 2016-10-11 ===

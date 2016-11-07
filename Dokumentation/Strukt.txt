@@ -1,0 +1,37 @@
+===========================================
+=== Strukturelle Elemente, [2016-11-07] ===
+===========================================
+
+==01 table==
+01_01 Kalendererstellung / Lernplan, Lerngruppentermine, Klausurenplan
+
+==02 input/submit==
+02_01 submit
+
+==03 input/file==
+03_01 Mitschriften (Textdateien) auswählen
+
+==04 input/date==
+04_01 type=date / Kalendereinträge (mehrfache Verwendung)
+04_01_01 Lernziele/Meilensteine
+04_01_02 Lerngruppentermine vorschlagen/setzen
+04_01_03 Klausurentermine
+04_01_04 Vorlesungstermine
+04_01_05 Hausaufgabenfristen
+
+==05 input/email==
+05_01 type=email / Eingabe der E-Mail
+05_01_01 Benutzerprofil erstellen
+05_01_02 Kontaktdaten für andere User
+
+== 06 input/image==
+06_01 Mitschriften (Grafiken) hochladen
+
+==07 input/range==
+07_01 Selbsteinschätzung (Wissensstand) für Benutzerprofil
+
+==08 input/password==
+08_01 type=password / Passwort für Benutzerprofil eingeben
+
+==09 input/text==
+09_01 Texteingabe (mehrfache Verwendung, folgt)
