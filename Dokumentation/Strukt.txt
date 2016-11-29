@@ -1,5 +1,5 @@
 ===========================================
-=== Strukturelle Elemente, [2016-11-07] ===
+=== Strukturelle Elemente, [2016-11-29] ===
 ===========================================
 
 ==01 table==
@@ -35,3 +35,44 @@
 
 ==09 input/text==
 09_01 Texteingabe (mehrfache Verwendung, folgt)
+
+==10 button==
+10_01 Universales Bestätigungselement (diverse Verwendungen)
+10_02 Uploads/Downloads speichern via Buttonklick
+10_03 Zeitmanagement in Lerplan speichern via Buttonklick
+10_04 Lernplan Einträge bestätigen vie Buttonklick
+10_05 Filter bestätigen (Lerngruppenoptionen) via Buttonklick
+10_06 Textbearbeitungsoperationen eventuell via Buttonklick (alternativ: Radiobutton, Checkbox, Dropdown)
+10_07 etc.
+
+==11 datalist==
+11_01 Thematisch organisierte Optionen für <select>
+11_02 Optionen für Studiengang, Vorlesung, Semester, Themenauswahl etc. (Filter)
+
+==12 select (option, optgroup)==
+12_01 Zugriff auf <datalist> (thematische Organisation)
+12_02 Dropdown Option, diverse Anwendungsmöglichkeiten
+
+==13 textarea==
+12_01 Diverse Verwendungen in allen Bereichen, universelles Eingabefeld (String, int, etc.)
+12_02 Textbearbeitungsfeld für Mitschriften (Projektentwurf: 1.3 Notizen Organisieren)
+
+==14 output==
+14_01 Wert von Selbsteinschätzung (festlegen und) darstellen via <range>
+
+==15 progress==
+15_01 (Sehr hilfreiches) Element zur Fortschrittsanzeige, "Ladebalken"
+15_02 Fortschrittsanzeige (Projektentwurf: 1.1 - Lerninhalte, Fazit; 1.5 Meilensteine)
+
+==16 meter==
+16_01 Siehe (15 progress)
+
+==17 details (summary)==
+17_01 Interaktiv mit Lerninhalten/-plänen arbeiten, "ausklappbare" Inhalte
+
+==18 menu==
+18_01 Diverse Anwendungsbereiche
+
+===================================================
+=== Microservices, [2016-11-29] ===
+===================================================

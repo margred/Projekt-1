@@ -1,27 +1,6 @@
 ==============================================================================
-=== Ergänzungen zu 'Verteilten Anwendungen', v_3, [2016-11-07] ===
+=== Ergänzungen organisiert v_4, [2016-11-29] ===
 ==============================================================================
-
-----------------------
--1.5 Belohnungssystem- (Ergänzt: 07.11.16)
-----------------------
-
-- Sammeln von Punkten bei kontinuirlichem Lernen
-- Freischaltbare (Lern)Inhalte bei Erreichen von Meilensteinen/Lernzielen
-- Bestenliste
-
-----------------------
--2.5 Belohnungssystem- (Ergänzt: 07.11.16)
-----------------------
-
-- Teil der Navigation, Kopf des Programms
-- Immer aktiv
-- täglich automatische Aktivierung
-- Punkte täglich sammeln, sonst Neustart, wieder bei 0 anfangen
-- Möglichkeit, Lernerfolge mit Kommilitonen zu vergleichen
-
-=========================================
-=========================================
 
 =============
 =Projektidee=
@@ -83,6 +62,13 @@ d.h.
 - Klausurenplan verwalten und organisieren (wann, wo, wer, was)
 - detaillierte Tagespläne mit Lern- und Pauseeinheiten
 
+----------------------
+-1.5 Belohnungssystem- (Ergänzt: 07.11.16)
+----------------------
+
+- Sammeln von Punkten bei kontinuirlichem Lernen
+- Freischaltbare (Lern)Inhalte bei Erreichen von Meilensteinen/Lernzielen
+- Bestenliste
 
 ============================================
 =Punkt 2: Ideen für den Aufbau der Software=
@@ -124,6 +110,16 @@ d.h.
 - interaktive Übersicht über Lernfortschritt (zielorientiert)
 - einsehbare und sich aktuallisierende Tagesziele/Wochenziele bis zu einem Datum
 - Kalenderansicht zur Organisation Teil des Programms
+
+----------------------
+-2.5 Belohnungssystem- (Ergänzt: 07.11.16)
+----------------------
+
+- Teil der Navigation, Kopf des Programms
+- Immer aktiv
+- täglich automatische Aktivierung
+- Punkte täglich sammeln, sonst Neustart, wieder bei 0 anfangen
+- Möglichkeit, Lernerfolge mit Kommilitonen zu vergleichen
 
 =======================================
 =======================================
