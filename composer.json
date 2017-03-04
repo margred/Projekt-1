@@ -1,0 +1,7 @@
+{
+    "name": "haw-ms/project-1",
+    "type": "project",
+    "require": {
+        "php": "^7.1"
+    }
+}
