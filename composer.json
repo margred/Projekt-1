@@ -1,6 +1,11 @@
 {
     "name": "haw-ms/project-1",
     "type": "project",
+    "autoload": {
+        "psr-4": {
+            "HAWMS\\": "src/"
+        }
+    },
     "require": {
         "php": "^7.1"
     },
