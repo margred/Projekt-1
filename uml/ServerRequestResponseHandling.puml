@@ -1,0 +1,48 @@
+@startuml
+
+actor User
+participant WebServer
+participant Server
+participant RequestFactory
+participant Application
+participant Request
+participant Response
+
+User->WebServer: requests website
+    activate WebServer
+        create Application
+        WebServer->Application: new
+        create Server
+        WebServer->Server: new(Application)
+        WebServer->Server: run
+            activate Server
+                Server->RequestFactory: create
+                    activate RequestFactory
+                        create Request
+                        RequestFactory->Request: new
+                        Server<-RequestFactory: request
+                    deactivate RequestFactory
+                create Response
+                Server->Response: new
+                Server->Application: run(request, response)
+                    activate Application
+                        Application->Request: reads from request
+                            activate Request
+                                Application<-Request
+                            deactivate Request
+                        Application->Response: write(str)
+                            activate Response
+                                Application<-Response
+                            deactivate Response
+                    deactivate Application
+                create ResponseSender
+                Server->ResponseSender: new
+                Server->ResponseSender: send(response)
+                    activate ResponseSender
+                        Server<-ResponseSender
+                    deactivate ResponseSender
+                WebServer<-Server:
+            deactivate Server
+        User<-WebServer: output website
+    deactivate WebServer
+@enduml
