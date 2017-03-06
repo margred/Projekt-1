@@ -2,7 +2,10 @@
 
 namespace HAWMS\http;
 
-interface ResponseFactory
+class ResponseFactory
 {
-    public function createResponse();
+    public function createResponse()
+    {
+        return new Response();
+    }
 }
