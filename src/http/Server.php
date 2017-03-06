@@ -11,11 +11,13 @@ class Server
 
     /**
      * Server constructor.
+     * @param ServerContext $context
+     * @param Application $application
      */
-    public function __construct(Application $application, ResponseSender $responseSender)
+    public function __construct(ServerContext $context, Application $application)
     {
         $this->application = $application;
-        $this->responseSender = $responseSender;
+        $this->responseSender = $context->getResponseSender();
     }
 
     public function run(Request $request, Response $response)

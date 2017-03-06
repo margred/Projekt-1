@@ -5,18 +5,23 @@ use HAWMS\http\Request;
 use HAWMS\http\Response;
 use HAWMS\http\ResponseSender;
 use HAWMS\http\Server;
+use HAWMS\http\ServerContext;
 
 class ServerTest extends \PHPUnit\Framework\TestCase
 {
+    private $serverContext;
     private $application;
     private $responseSender;
     private $server;
 
     protected function setUp()
     {
-        $this->application = $this->createMock(Application::class);
         $this->responseSender = $this->createMock(ResponseSender::class);
-        $this->server = new Server($this->application, $this->responseSender);
+        $this->serverContext = $this->createMock(ServerContext::class);
+        $this->serverContext->method('getResponseSender')
+            ->willReturn($this->responseSender);
+        $this->application = $this->createMock(Application::class);
+        $this->server = new Server($this->serverContext, $this->application);
     }
 
     public function testShouldRunApplication()
@@ -31,7 +36,7 @@ class ServerTest extends \PHPUnit\Framework\TestCase
         $this->server->run($request, $response);
     }
 
-    public function testShouldReturnedSendResponse()
+    public function testShouldSendReturnedResponse()
     {
         $response = $this->createMock(Response::class);
         $expectedResponse = $this->createMock(Response::class);
