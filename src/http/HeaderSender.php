@@ -13,5 +13,6 @@ class HeaderSender
 {
     public function send(string $headerString)
     {
+        header($headerString);
     }
 }
