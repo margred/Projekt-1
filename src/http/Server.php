@@ -7,6 +7,8 @@ use HAWMS\Application;
 class Server
 {
     private $application;
+    private $requestFactory;
+    private $responseFactory;
     private $responseSender;
 
     /**
@@ -18,10 +20,18 @@ class Server
     {
         $this->application = $application;
         $this->responseSender = $context->getResponseSender();
+        $this->requestFactory = $context->getRequestFactory();
+        $this->responseFactory = $context->getResponseFactory();
     }
 
-    public function run(Request $request, Response $response)
+    public function run(Request $request = null, Response $response = null)
     {
+        if (!$request) {
+            $request = $this->requestFactory->createRequest();
+        }
+        if (!$response) {
+            $response = $this->responseFactory->createResponse();
+        }
         $response = $this->application->run($request, $response);
         $this->responseSender->send($response);
     }
