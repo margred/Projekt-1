@@ -9,6 +9,7 @@ class ServerContext
      */
     public function getRequestFactory()
     {
+        return new RequestFactory();
     }
 
     /**
@@ -16,6 +17,7 @@ class ServerContext
      */
     public function getResponseFactory()
     {
+        return new ResponseFactory();
     }
 
     /**
@@ -23,5 +25,14 @@ class ServerContext
      */
     public function getResponseSender()
     {
+        return new ResponseSender($this->getHeaderSender());
+    }
+
+    /**
+     * @return HeaderSender
+     */
+    public function getHeaderSender()
+    {
+        return new HeaderSender();
     }
 }
