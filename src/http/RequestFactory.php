@@ -2,7 +2,18 @@
 
 namespace HAWMS\http;
 
-interface RequestFactory
+class RequestFactory
 {
-    public function createRequest();
+
+    /**
+     * @return Request
+     */
+    public function createRequest()
+    {
+        $request = new Request([
+            'params' => $_GET,
+            'body' => $_POST
+        ]);
+        return $request;
+    }
 }
