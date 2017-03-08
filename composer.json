@@ -6,6 +6,11 @@
             "HAWMS\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "HAWMS\\Test\\": "test/"
+        }
+    },
     "require": {
         "php": "^7.1"
     },
