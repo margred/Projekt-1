@@ -2,11 +2,22 @@
 
 namespace HAWMS;
 
+use HAWMS\http\FilterChain;
 use HAWMS\http\Request;
 use HAWMS\http\Response;
 
 class Application
 {
+    private $filterChain;
+
+    /**
+     * Application constructor.
+     */
+    public function __construct()
+    {
+        $this->filterChain = new FilterChain();
+        $this->filterChain->addFilter(new SampleFilter());
+    }
 
     /**
      * @param Request $request
@@ -15,15 +26,6 @@ class Application
      */
     public function run(Request $request, Response $response)
     {
-        $sample = new Sample();
-        $sample->increase();
-        $body = sprintf("Increase Sample: %d<br>", $sample->getNum());
-        $sample->increase();
-        $body .= sprintf("Increase Sample: %d<br>", $sample->getNum());
-        $sample->decrease();
-        $body .= sprintf("Decrease Sample: %d<br>", $sample->getNum());
-        $body .= sprintf("Result: %d\n", $sample->getNum());
-        $response->setBody($body);
-        return $response;
+        return $this->filterChain->filter($request, $response);
     }
 }
