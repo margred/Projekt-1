@@ -31,6 +31,14 @@ class Response
         return $this->statusReasonPhrase;
     }
 
+    /**
+     * @return string
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
     public function setBody(string $body)
     {
         $this->body = $body;

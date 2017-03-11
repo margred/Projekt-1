@@ -3,14 +3,13 @@
 namespace HAWMS\http;
 
 use HAWMS\controller\UserRegistrationController;
-use HAWMS\view\ViewModelRenderer;
+use HAWMS\view\ViewRenderer;
+use HAWMS\view\ViewResolver;
 
 class Dispatcher
 {
-    /**
-     * @var ViewModelRenderer
-     */
-    private $viewModelRenderer;
+    private $viewResolver;
+    private $viewRenderer;
     /**
      * @var UserRegistrationController
      */
@@ -18,18 +17,23 @@ class Dispatcher
 
     /**
      * Dispatcher constructor.
-     * @param ViewModelRenderer $viewModelRenderer
+     * @param ViewResolver $viewResolver
+     * @param ViewRenderer $viewRenderer
      * @param UserRegistrationController $userRegistrationController
      */
-    public function __construct(ViewModelRenderer $viewModelRenderer, UserRegistrationController $userRegistrationController)
+    public function __construct(ViewResolver $viewResolver, ViewRenderer $viewRenderer, UserRegistrationController $userRegistrationController)
     {
-        $this->viewModelRenderer = $viewModelRenderer;
+        $this->viewResolver = $viewResolver;
+        $this->viewRenderer = $viewRenderer;
         $this->userRegistrationController = $userRegistrationController;
     }
 
     public function dispatch(Request $request, Response $response)
     {
         $viewModel = $this->userRegistrationController->register();
-        $this->viewModelRenderer->render($viewModel, $request, $response);
+        $view = $this->viewResolver->resolveView($viewModel->getViewName());
+        $body = $this->viewRenderer->render($view);
+        $response->setBody($body);
+        return $response;
     }
 }
