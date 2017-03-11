@@ -4,8 +4,8 @@ namespace HAWMS\http;
 
 class Request
 {
-    private $params;
-    private $body;
+    private $params = [];
+    private $body = [];
 
     /**
      * Request constructor.
@@ -13,8 +13,12 @@ class Request
      */
     public function __construct(array $data = [])
     {
-        $this->params = $data['params'];
-        $this->body = $data['body'];
+        if (isset($data['params'])) {
+            $this->params = $data['params'];
+        }
+        if (isset($data['body'])) {
+            $this->body = $data['body'];
+        }
     }
 
     public function getParams()
