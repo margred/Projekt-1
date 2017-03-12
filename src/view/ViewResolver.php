@@ -4,6 +4,7 @@ namespace HAWMS\view;
 
 class ViewResolver
 {
+    const FILE_EXTENSION = '.php';
     private $viewPath;
 
     /**
@@ -29,7 +30,7 @@ class ViewResolver
      */
     public function resolveView(string $viewName)
     {
-        $path = $this->getViewPath() . $viewName;
+        $path = $this->getViewPath() . $viewName . self::FILE_EXTENSION;
         return new View($path);
     }
 

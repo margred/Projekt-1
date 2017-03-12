@@ -33,6 +33,6 @@ class ViewResolverTest extends \PHPUnit\Framework\TestCase
         $view = $this->viewResolver->resolveView($viewName);
 
         $this->assertNotNull($view);
-        $this->assertEquals($this->viewResolver->getViewPath() . $viewName, $view->getPath());
+        $this->assertEquals($this->viewResolver->getViewPath() . $viewName . '.php', $view->getPath());
     }
 }
