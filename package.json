@@ -1,8 +1,10 @@
 {
   "name": "project-1",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "devDependencies": {
+    "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
+    "gulp-connect-php": "^0.0.8",
     "gulp-sass": "^3.1.0"
   },
   "repository": {
