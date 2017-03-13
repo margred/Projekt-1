@@ -25,8 +25,8 @@ class UniversityServiceTest extends \PHPUnit\Framework\TestCase
     public function testShouldReturnAllFoundUniversities()
     {
         $expectedUniversities = [
-            new University(1, 'HAW Hamburg'),
-            new University(2, 'University Hamburg')
+            new University(),
+            new University()
         ];
         $this->universityRepository->method('findAll')
             ->wilLReturn($expectedUniversities);
