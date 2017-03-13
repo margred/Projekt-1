@@ -6,6 +6,7 @@ class Request
 {
     private $params = [];
     private $body = [];
+    private $method;
 
     /**
      * Request constructor.
@@ -19,6 +20,9 @@ class Request
         if (isset($data['body'])) {
             $this->body = $data['body'];
         }
+        if (isset($data['method'])) {
+            $this->method = $data['method'];
+        }
     }
 
     public function getParams()
@@ -29,5 +33,15 @@ class Request
     public function getBody()
     {
         return $this->body;
+    }
+
+    public function getMethod()
+    {
+        return $this->method;
+    }
+
+    public function isPost()
+    {
+        return $this->method == 'POST';
     }
 }

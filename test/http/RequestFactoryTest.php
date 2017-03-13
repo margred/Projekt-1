@@ -40,4 +40,12 @@ class RequestFactoryTest extends \PHPUnit\Framework\TestCase
         $this->assertSame($_POST, $request->getBody());
     }
 
+    public function testShouldSetRequestMethod()
+    {
+        $_SERVER['REQUEST_METHOD'] = 'POST';
+        $request = $this->requestFactory->createRequest();
+
+        $this->assertNotNull($request);
+        $this->assertSame('POST', $request->getMethod());
+    }
 }

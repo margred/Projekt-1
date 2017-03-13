@@ -13,13 +13,16 @@ class RequestTest extends TestCase
         $body = [
             'foo' => 'bar'
         ];
+        $method = 'GET';
         $request = new Request([
             'params' => $params,
-            'body' => $body
+            'body' => $body,
+            'method' => $method
         ]);
 
         $this->assertEquals($params, $request->getParams());
         $this->assertEquals($body, $request->getBody());
+        $this->assertEquals($method, $request->getMethod());
     }
 
     public function testShouldIgnoreUndefinexIndices()
@@ -30,5 +33,14 @@ class RequestTest extends TestCase
         $this->assertEmpty($request->getParams());
         $this->assertNotNull($request->getBody());
         $this->assertEmpty($request->getBody());
+    }
+
+    public function testWhenRequestMethodIsPost_ShouldReturnTrue()
+    {
+        $request = new Request([
+            'method' => 'POST'
+        ]);
+
+        $this->assertTrue($request->isPost());
     }
 }
