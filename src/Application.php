@@ -12,6 +12,7 @@ use HAWMS\repository\CourseRepository;
 use HAWMS\repository\UniversityRepository;
 use HAWMS\service\CourseService;
 use HAWMS\service\UniversityService;
+use HAWMS\service\UserService;
 use HAWMS\view\ViewRenderer;
 use HAWMS\view\ViewResolver;
 use PDO;
@@ -46,12 +47,13 @@ class Application
 
     private function getUserRegistrationController()
     {
+        $userService = new UserService();
         $connection = $this->getDatabaseConnection();
         $universityRepository = new UniversityRepository($connection);
         $universityService = new UniversityService($universityRepository);
         $courseRepository = new CourseRepository($connection);
         $courseService = new CourseService($courseRepository);
-        return new UserRegistrationController($universityService, $courseService);
+        return new UserRegistrationController($userService, $universityService, $courseService);
     }
 
     public function getDatabaseConnection()

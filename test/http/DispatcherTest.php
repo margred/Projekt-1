@@ -41,12 +41,15 @@ class DispatcherTest extends TestCase
 
     public function testShouldDispatchRequest()
     {
+        $request = new Request();
         $viewModel = new \HAWMS\controller\ViewModel('aView', [
             'foo' => 'bar'
         ]);
         $view = new View(dirname(__DIR__) . '/template/test.php');
         $expectedResponseBody = 'A rendered view';
-        $this->userRegistrationController->method('register')
+        $this->userRegistrationController->expects($this->once())
+            ->method('register')
+            ->with($request)
             ->willReturn($viewModel);
         $this->viewResolver->expects($this->once())
             ->method('resolveView')
@@ -57,7 +60,7 @@ class DispatcherTest extends TestCase
             ->with($view, $viewModel->getModel())
             ->willReturn($expectedResponseBody);
 
-        $response = $this->dispatcher->dispatch(new Request(), new Response());
+        $response = $this->dispatcher->dispatch($request, new Response());
 
         $this->assertEquals($expectedResponseBody, $response->getBody());
     }

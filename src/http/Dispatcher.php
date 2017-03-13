@@ -30,7 +30,7 @@ class Dispatcher
 
     public function dispatch(Request $request, Response $response)
     {
-        $viewModel = $this->userRegistrationController->register();
+        $viewModel = $this->userRegistrationController->register($request);
         $view = $this->viewResolver->resolveView($viewModel->getViewName());
         $body = $this->viewRenderer->render($view, $viewModel->getModel());
         $response->setBody($body);
