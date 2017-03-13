@@ -10,6 +10,7 @@ use HAWMS\http\Request;
 use HAWMS\http\Response;
 use HAWMS\repository\CourseRepository;
 use HAWMS\repository\UniversityRepository;
+use HAWMS\repository\UserRepository;
 use HAWMS\service\CourseService;
 use HAWMS\service\UniversityService;
 use HAWMS\service\UserService;
@@ -47,8 +48,9 @@ class Application
 
     private function getUserRegistrationController()
     {
-        $userService = new UserService();
         $connection = $this->getDatabaseConnection();
+        $userRepository = new UserRepository($connection);
+        $userService = new UserService($userRepository);
         $universityRepository = new UniversityRepository($connection);
         $universityService = new UniversityService($universityRepository);
         $courseRepository = new CourseRepository($connection);
