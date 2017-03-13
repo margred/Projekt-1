@@ -8,7 +8,9 @@ use HAWMS\http\DispatcherFilter;
 use HAWMS\http\FilterChain;
 use HAWMS\http\Request;
 use HAWMS\http\Response;
+use HAWMS\repository\CourseRepository;
 use HAWMS\repository\UniversityRepository;
+use HAWMS\service\CourseService;
 use HAWMS\service\UniversityService;
 use HAWMS\view\ViewRenderer;
 use HAWMS\view\ViewResolver;
@@ -47,7 +49,9 @@ class Application
         $connection = $this->getDatabaseConnection();
         $universityRepository = new UniversityRepository($connection);
         $universityService = new UniversityService($universityRepository);
-        return new UserRegistrationController($universityService);
+        $courseRepository = new CourseRepository($connection);
+        $courseService = new CourseService($courseRepository);
+        return new UserRegistrationController($universityService, $courseService);
     }
 
     public function getDatabaseConnection()
