@@ -2,6 +2,7 @@
 
 namespace HAWMS\service;
 
+use HAWMS\model\University;
 use HAWMS\repository\UniversityRepository;
 
 class UniversityService
@@ -20,6 +21,9 @@ class UniversityService
         $this->universityRepository = $universityRepository;
     }
 
+    /**
+     * @return University[]
+     */
     public function getUniversities()
     {
         return $this->universityRepository->findAll();
