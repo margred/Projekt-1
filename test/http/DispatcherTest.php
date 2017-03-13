@@ -41,7 +41,9 @@ class DispatcherTest extends TestCase
 
     public function testShouldDispatchRequest()
     {
-        $viewModel = new \HAWMS\controller\ViewModel('aView');
+        $viewModel = new \HAWMS\controller\ViewModel('aView', [
+            'foo' => 'bar'
+        ]);
         $view = new View(dirname(__DIR__) . '/template/test.php');
         $expectedResponseBody = 'A rendered view';
         $this->userRegistrationController->method('register')

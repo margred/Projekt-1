@@ -32,7 +32,7 @@ class Dispatcher
     {
         $viewModel = $this->userRegistrationController->register();
         $view = $this->viewResolver->resolveView($viewModel->getViewName());
-        $body = $this->viewRenderer->render($view);
+        $body = $this->viewRenderer->render($view, $viewModel->getModel());
         $response->setBody($body);
         return $response;
     }
