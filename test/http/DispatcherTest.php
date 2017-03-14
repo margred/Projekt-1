@@ -3,6 +3,7 @@
 use HAWMS\controller\UserRegistrationController;
 use HAWMS\http\Dispatcher;
 use HAWMS\http\Request;
+use HAWMS\http\RequestHandler;
 use HAWMS\http\Response;
 use HAWMS\view\View;
 use HAWMS\view\ViewRenderer;
@@ -11,6 +12,11 @@ use PHPUnit\Framework\TestCase;
 
 class DispatcherTest extends TestCase
 {
+    /**
+     * @var RequestHandler
+     */
+    private $requestHandler;
+
     /**
      * @var ViewResolver
      */
@@ -22,34 +28,30 @@ class DispatcherTest extends TestCase
     private $viewRenderer;
 
     /**
-     * @var UserRegistrationController
-     */
-    private $userRegistrationController;
-
-    /**
      * @var Dispatcher
      */
     private $dispatcher;
 
     protected function setUp()
     {
-        $this->userRegistrationController = $this->createMock(UserRegistrationController::class);
+        $this->requestHandler = $this->createMock(RequestHandler::class);
         $this->viewResolver = $this->createMock(ViewResolver::class);
         $this->viewRenderer = $this->createMock(ViewRenderer::class);
-        $this->dispatcher = new Dispatcher($this->viewResolver, $this->viewRenderer, $this->userRegistrationController);
+        $this->dispatcher = new Dispatcher($this->requestHandler, $this->viewResolver, $this->viewRenderer);
     }
 
     public function testShouldDispatchRequest()
     {
         $request = new Request();
+        $response = new Response();
         $viewModel = new \HAWMS\controller\ViewModel('aView', [
             'foo' => 'bar'
         ]);
         $view = new View(dirname(__DIR__) . '/template/test.php');
         $expectedResponseBody = 'A rendered view';
-        $this->userRegistrationController->expects($this->once())
-            ->method('register')
-            ->with($request)
+        $this->requestHandler->expects($this->once())
+            ->method('handle')
+            ->with($request, $response)
             ->willReturn($viewModel);
         $this->viewResolver->expects($this->once())
             ->method('resolveView')
@@ -60,7 +62,7 @@ class DispatcherTest extends TestCase
             ->with($view, $viewModel->getModel())
             ->willReturn($expectedResponseBody);
 
-        $response = $this->dispatcher->dispatch($request, new Response());
+        $response = $this->dispatcher->dispatch($request, $response);
 
         $this->assertEquals($expectedResponseBody, $response->getBody());
     }
