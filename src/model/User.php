@@ -4,6 +4,14 @@ namespace HAWMS\model;
 
 class User
 {
+    protected $mapping = [
+        'first_name' => 'firstName',
+        'last_name' => 'lastName',
+        'university_id' => 'universityId',
+        'course_id' => 'courseId'
+    ];
+
+    private $id;
     private $email;
     private $password;
     private $firstName;
@@ -11,8 +19,25 @@ class User
     private $universityId;
     private $courseId;
 
+    function __set($name, $value)
+    {
+        if (isset($this->mapping[$name])) {
+            $propertyName = $this->mapping[$name];
+            $this->$propertyName = $value;
+        }
+    }
+
+
     /**
-     * @return mixed
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
      */
     public function getEmail()
     {
@@ -20,7 +45,7 @@ class User
     }
 
     /**
-     * @param mixed $email
+     * @param string $email
      */
     public function setEmail($email)
     {
@@ -28,7 +53,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPassword()
     {
@@ -36,7 +61,7 @@ class User
     }
 
     /**
-     * @param mixed $password
+     * @param string $password
      */
     public function setPassword($password)
     {
@@ -44,7 +69,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getFirstName()
     {
@@ -52,7 +77,7 @@ class User
     }
 
     /**
-     * @param mixed $firstName
+     * @param string $firstName
      */
     public function setFirstName($firstName)
     {
@@ -60,7 +85,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLastName()
     {
@@ -68,7 +93,7 @@ class User
     }
 
     /**
-     * @param mixed $lastName
+     * @param string $lastName
      */
     public function setLastName($lastName)
     {
@@ -76,7 +101,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getUniversityId()
     {
@@ -84,7 +109,7 @@ class User
     }
 
     /**
-     * @param mixed $universityId
+     * @param int $universityId
      */
     public function setUniversityId($universityId)
     {
@@ -92,7 +117,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getCourseId()
     {
@@ -100,7 +125,7 @@ class User
     }
 
     /**
-     * @param mixed $courseId
+     * @param int $courseId
      */
     public function setCourseId($courseId)
     {
