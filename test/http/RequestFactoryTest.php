@@ -12,6 +12,9 @@ class RequestFactoryTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp()
     {
+        $_SERVER['SCRIPT_NAME'] = '/index.php';
+        $_SERVER['REQUEST_URI'] = '/';
+
         $this->requestFactory = new RequestFactory();
     }
 
@@ -47,5 +50,15 @@ class RequestFactoryTest extends \PHPUnit\Framework\TestCase
 
         $this->assertNotNull($request);
         $this->assertSame('POST', $request->getMethod());
+    }
+
+    public function testShouldSetUri()
+    {
+        $_SERVER['SCRIPT_NAME'] = '/project-1/index.php';
+        $_SERVER['REQUEST_URI'] = '/project-1/course/1?fields=name';
+
+        $request = $this->requestFactory->createRequest();
+
+        $this->assertEquals('/course/1', $request->getUri());
     }
 }

@@ -4,6 +4,7 @@ namespace HAWMS\http;
 
 class Request
 {
+    private $uri;
     private $params = [];
     private $body = [];
     private $method;
@@ -14,6 +15,9 @@ class Request
      */
     public function __construct(array $data = [])
     {
+        if (isset($data['uri'])) {
+            $this->uri = $data['uri'];
+        }
         if (isset($data['params'])) {
             $this->params = $data['params'];
         }
@@ -23,6 +27,11 @@ class Request
         if (isset($data['method'])) {
             $this->method = $data['method'];
         }
+    }
+
+    public function getUri()
+    {
+        return $this->uri;
     }
 
     public function getParams()
