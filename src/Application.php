@@ -3,6 +3,7 @@
 namespace HAWMS;
 
 use HAWMS\controller\UserRegistrationController;
+use HAWMS\http\ControllerInvoker;
 use HAWMS\http\Dispatcher;
 use HAWMS\http\DispatcherFilter;
 use HAWMS\http\FilterChain;
@@ -11,6 +12,9 @@ use HAWMS\http\Response;
 use HAWMS\repository\CourseRepository;
 use HAWMS\repository\UniversityRepository;
 use HAWMS\repository\UserRepository;
+use HAWMS\routing\Route;
+use HAWMS\routing\Router;
+use HAWMS\routing\RouterRequestHandler;
 use HAWMS\service\CourseService;
 use HAWMS\service\UniversityService;
 use HAWMS\service\UserService;
@@ -28,10 +32,10 @@ class Application
      */
     public function __construct()
     {
+        $routerRequestHandler = new RouterRequestHandler($this->getRouter(), $this->getControllerInvoker());
         $viewResolver = new ViewResolver(__DIR__ . '/template');
         $viewRenderer = new ViewRenderer();
-        $userRegistrationController = $this->getUserRegistrationController();
-        $dispatch = new Dispatcher($viewResolver, $viewRenderer, $userRegistrationController);
+        $dispatch = new Dispatcher($routerRequestHandler, $viewResolver, $viewRenderer);
         $this->filterChain = new FilterChain();
         $this->filterChain->addFilter(new DispatcherFilter($dispatch));
     }
@@ -44,6 +48,24 @@ class Application
     public function run(Request $request, Response $response)
     {
         return $this->filterChain->filter($request, $response);
+    }
+
+    private function getRouter()
+    {
+        $router = new Router();
+        $router->addRoute(new Route('/\/signup/', [
+            'controller' => 'UserRegistrationController',
+            'action' => 'register'
+        ]));
+        return $router;
+    }
+
+    private function getControllerInvoker()
+    {
+        $controller = [
+            'UserRegistrationController' => $this->getUserRegistrationController()
+        ];
+        return new ControllerInvoker($controller);
     }
 
     private function getUserRegistrationController()
