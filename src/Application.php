@@ -2,6 +2,7 @@
 
 namespace HAWMS;
 
+use HAWMS\controller\LoginController;
 use HAWMS\controller\UserRegistrationController;
 use HAWMS\http\ControllerInvoker;
 use HAWMS\http\Dispatcher;
@@ -58,13 +59,18 @@ class Application
             'controller' => 'UserRegistrationController',
             'action' => 'register'
         ]));
+        $router->addRoute(new Route('/\/login/', [
+            'controller' => 'LoginController',
+            'action' => 'login'
+        ]));
         return $router;
     }
 
     private function getControllerInvoker()
     {
         $controller = [
-            'UserRegistrationController' => $this->getUserRegistrationController()
+            'UserRegistrationController' => $this->getUserRegistrationController(),
+            'LoginController' => $this->getLoginController()
         ];
         return new ControllerInvoker($controller);
     }
@@ -79,6 +85,11 @@ class Application
         $courseRepository = new CourseRepository($connection);
         $courseService = new CourseService($courseRepository);
         return new UserRegistrationController($userService, $universityService, $courseService);
+    }
+
+    private function getLoginController()
+    {
+        return new LoginController();
     }
 
     public function getDatabaseConnection()

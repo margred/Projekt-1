@@ -1,7 +1,6 @@
 <?php
 
-use HAWMS\controller\Controller;
-use HAWMS\controller\ViewModel;
+namespace HAWMS\controller;
 
 class LoginController extends Controller
 {
