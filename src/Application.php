@@ -35,6 +35,7 @@ class Application
         $routerRequestHandler = new RouterRequestHandler($this->getRouter(), $this->getControllerInvoker());
         $viewResolver = new ViewResolver(__DIR__ . '/template');
         $viewRenderer = new ViewRenderer();
+        $viewRenderer->setLayoutPath(__DIR__ . '/template/layout/default.php');
         $dispatch = new Dispatcher($routerRequestHandler, $viewResolver, $viewRenderer);
         $this->filterChain = new FilterChain();
         $this->filterChain->addFilter(new DispatcherFilter($dispatch));
