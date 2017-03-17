@@ -9,6 +9,11 @@ use HAWMS\repository\UserRepository;
 class UserService
 {
     /**
+     * @var PasswordEncoder
+     */
+    private $passwordEncoder;
+
+    /**
      * @var UserRepository
      */
     private $userRepository;
@@ -16,8 +21,9 @@ class UserService
     /**
      * UserService constructor.
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct(PasswordEncoder $passwordEncoder, UserRepository $userRepository)
     {
+        $this->passwordEncoder = $passwordEncoder;
         $this->userRepository = $userRepository;
     }
 
@@ -27,6 +33,7 @@ class UserService
         if ($existingUser) {
             throw new DuplicateEmailException($user->getEmail() . ' already used');
         }
+        $user->setPassword($this->passwordEncoder->encode($user->getPassword()));
         return $this->userRepository->save($user);
     }
 }
