@@ -1,7 +1,7 @@
 <h2>Login</h2>
 
 <div id="inhalt">
-    <form id="regform" method="post" action="login.php?page=log">
+    <form id="regform" method="post" action="/login?page=log">
         <input type="text" name="user" placeholder="Username"/>
         <input type="password" name="passwort" placeholder="Passwort"/>
 
