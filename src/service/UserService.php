@@ -3,6 +3,7 @@
 namespace HAWMS\service;
 
 use HAWMS\exception\DuplicateEmailException;
+use HAWMS\exception\UserNotFoundException;
 use HAWMS\model\User;
 use HAWMS\repository\UserRepository;
 
@@ -35,5 +36,14 @@ class UserService
         }
         $user->setPassword($this->passwordEncoder->encode($user->getPassword()));
         return $this->userRepository->save($user);
+    }
+
+    public function loadUserByEmail($email)
+    {
+        $user = $this->userRepository->findOneByEmail($email);
+        if (!$user) {
+            throw new UserNotFoundException('User with email <' . $email . '> not found');
+        }
+        return $user;
     }
 }

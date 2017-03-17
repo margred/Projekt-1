@@ -1,5 +1,6 @@
 <?php
 
+use HAWMS\exception\UserNotFoundException;
 use HAWMS\model\User;
 use HAWMS\repository\UserRepository;
 use HAWMS\service\PasswordEncoder;
@@ -80,5 +81,35 @@ class UserServiceTest extends \PHPUnit\Framework\TestCase
             ->method('save');
 
         $this->userService->register($user);
+    }
+
+    public function testShouldLoadUserByEmail()
+    {
+        $email = "max.mustermann@example.com";
+        $user = new User();
+        $user->setEmail($email);
+        $this->userRepository->expects($this->once())
+            ->method('findOneByEmail')
+            ->with($email)
+            ->willReturn($user);
+
+        $actualUser = $this->userService->loadUserByEmail($email);
+
+        $this->assertSame($user, $actualUser);
+    }
+
+    /**
+     * @expectedException Exception
+     */
+    public function testWhenUserCouldNotBeFound_ShouldUserNotFoundException()
+    {
+        $email = "max.mustermann@example.com";
+        $this->userRepository->expects($this->once())
+            ->method('findOneByEmail')
+            ->with($email)
+            ->willReturn(null);
+        $this->expectException(UserNotFoundException::class);
+
+        $this->userService->loadUserByEmail($email);
     }
 }
