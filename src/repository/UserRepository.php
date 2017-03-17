@@ -29,7 +29,7 @@ class UserRepository
     {
         $stmt = $this->connection->prepare('INSERT INTO users(email, password, first_name, last_name, university_id, course_id) VALUES(:email, :password, :firstName, :lastName, :universityId, :courseId)');
         $stmt->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
-        $stmt->bindValue(':password', $user->getEmail(), PDO::PARAM_STR);
+        $stmt->bindValue(':password', $user->getPassword(), PDO::PARAM_STR);
         $stmt->bindValue(':firstName', $user->getFirstName(), PDO::PARAM_STR);
         $stmt->bindValue(':lastName', $user->getLastName(), PDO::PARAM_STR);
         $stmt->bindValue(':universityId', $user->getUniversityId(), PDO::PARAM_INT);
