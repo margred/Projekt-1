@@ -2,6 +2,7 @@
 
 namespace HAWMS;
 
+use HAWMS\auth\EmailPasswordAuthenticationProvider;
 use HAWMS\controller\LoginController;
 use HAWMS\controller\UserRegistrationController;
 use HAWMS\http\ControllerInvoker;
@@ -17,6 +18,7 @@ use HAWMS\routing\Route;
 use HAWMS\routing\Router;
 use HAWMS\routing\RouterRequestHandler;
 use HAWMS\service\CourseService;
+use HAWMS\service\PasswordHashEncoder;
 use HAWMS\service\UniversityService;
 use HAWMS\service\UserService;
 use HAWMS\view\ViewRenderer;
@@ -68,28 +70,27 @@ class Application
 
     private function getControllerInvoker()
     {
+        $passwordEncoder = $this->getPasswordEncoder();
+        $connection = $this->getDatabaseConnection();
+        $universityService = $this->getUniversityService($connection);
+        $courseService = $this->getCourseService($connection);
+        $userService = $this->getUserService($connection, $passwordEncoder);
+        $emailPasswordAuthenticationProvider = new EmailPasswordAuthenticationProvider($userService, $passwordEncoder);
         $controller = [
-            'UserRegistrationController' => $this->getUserRegistrationController(),
-            'LoginController' => $this->getLoginController()
+            'UserRegistrationController' => $this->getUserRegistrationController($userService, $universityService, $courseService),
+            'LoginController' => $this->getLoginController($emailPasswordAuthenticationProvider)
         ];
         return new ControllerInvoker($controller);
     }
 
-    private function getUserRegistrationController()
+    private function getUserRegistrationController(UserService $userService, UniversityService $universityService, CourseService $courseService)
     {
-        $connection = $this->getDatabaseConnection();
-        $userRepository = new UserRepository($connection);
-        $userService = new UserService($userRepository);
-        $universityRepository = new UniversityRepository($connection);
-        $universityService = new UniversityService($universityRepository);
-        $courseRepository = new CourseRepository($connection);
-        $courseService = new CourseService($courseRepository);
         return new UserRegistrationController($userService, $universityService, $courseService);
     }
 
-    private function getLoginController()
+    private function getLoginController(EmailPasswordAuthenticationProvider $emailPasswordAuthenticationProvider)
     {
-        return new LoginController();
+        return new LoginController($emailPasswordAuthenticationProvider);
     }
 
     public function getDatabaseConnection()
@@ -101,5 +102,48 @@ class Application
         } catch (PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
         }
+    }
+
+    /**
+     * @return PasswordHashEncoder
+     */
+    private function getPasswordEncoder(): PasswordHashEncoder
+    {
+        $passwordEncoder = new PasswordHashEncoder();
+        return $passwordEncoder;
+    }
+
+    /**
+     * @param $connection
+     * @return UniversityService
+     */
+    private function getUniversityService($connection): UniversityService
+    {
+        $universityRepository = new UniversityRepository($connection);
+        $universityService = new UniversityService($universityRepository);
+        return $universityService;
+    }
+
+    /**
+     * @param $connection
+     * @return CourseService
+     */
+    private function getCourseService($connection): CourseService
+    {
+        $courseRepository = new CourseRepository($connection);
+        $courseService = new CourseService($courseRepository);
+        return $courseService;
+    }
+
+    /**
+     * @param $connection
+     * @param $passwordEncoder
+     * @return UserService
+     */
+    private function getUserService($connection, $passwordEncoder): UserService
+    {
+        $userRepository = new UserRepository($connection);
+        $userService = new UserService($passwordEncoder, $userRepository);
+        return $userService;
     }
 }
