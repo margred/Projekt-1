@@ -2,6 +2,7 @@
 
 namespace HAWMS\controller;
 
+use HAWMS\auth\BadCredentialsException;
 use HAWMS\auth\EmailPasswordAuthentication;
 use HAWMS\auth\EmailPasswordAuthenticationProvider;
 
@@ -31,12 +32,12 @@ class LoginController extends Controller
             $user = $_POST["user"];
             $passwort = $_POST["passwort"];
             $authentication = new EmailPasswordAuthentication($user, $passwort);
-            $user = $this->emailPasswordAuthenticationProvider->authenticate($authentication);
-            if ($user) {
+            try {
+                $user = $this->emailPasswordAuthenticationProvider->authenticate($authentication);
                 $_SESSION["id"] = $user->getId();
                 $_SESSION["username"] = $user->getEmail();
                 return new ViewModel('login_success');
-            } else {
+            } catch (BadCredentialsException $e) {
                 return new ViewModel('login_error');
             }
         }
