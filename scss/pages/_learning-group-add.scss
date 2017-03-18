@@ -1,0 +1,15 @@
+.learning-group-add {
+    &__form {
+        &__create-new {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        &__time {
+            .select {
+                display: inline-block;
+                width: auto;
+            }
+        }
+    }
+}

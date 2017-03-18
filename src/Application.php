@@ -3,6 +3,7 @@
 namespace HAWMS;
 
 use HAWMS\auth\EmailPasswordAuthenticationProvider;
+use HAWMS\controller\LearningGroupController;
 use HAWMS\controller\LoginController;
 use HAWMS\controller\UserRegistrationController;
 use HAWMS\http\ControllerInvoker;
@@ -57,13 +58,17 @@ class Application
     private function getRouter()
     {
         $router = new Router();
-        $router->addRoute(new Route('/\/signup/', [
+        $router->addRoute(new Route('/^\/signup$/', [
             'controller' => 'UserRegistrationController',
             'action' => 'register'
         ]));
-        $router->addRoute(new Route('/\/login/', [
+        $router->addRoute(new Route('/^\/login$/', [
             'controller' => 'LoginController',
             'action' => 'login'
+        ]));
+        $router->addRoute(new Route('/^\/learning-group\/add$/', [
+            'controller' => 'LearningGroupController',
+            'action' => 'add'
         ]));
         return $router;
     }
@@ -78,7 +83,8 @@ class Application
         $emailPasswordAuthenticationProvider = new EmailPasswordAuthenticationProvider($userService, $passwordEncoder);
         $controller = [
             'UserRegistrationController' => $this->getUserRegistrationController($userService, $universityService, $courseService),
-            'LoginController' => $this->getLoginController($emailPasswordAuthenticationProvider)
+            'LoginController' => $this->getLoginController($emailPasswordAuthenticationProvider),
+            'LearningGroupController' => $this->getLearningGroupController()
         ];
         return new ControllerInvoker($controller);
     }
@@ -145,5 +151,10 @@ class Application
         $userRepository = new UserRepository($connection);
         $userService = new UserService($passwordEncoder, $userRepository);
         return $userService;
+    }
+
+    private function getLearningGroupController()
+    {
+        return new LearningGroupController();
     }
 }
