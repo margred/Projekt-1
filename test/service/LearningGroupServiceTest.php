@@ -2,8 +2,11 @@
 
 use HAWMS\model\LearningGroup;
 use HAWMS\model\Lecture;
+use HAWMS\model\User;
 use HAWMS\repository\LearningGroupRepository;
+use HAWMS\service\LearningGroupService;
 use HAWMS\service\LectureService;
+use HAWMS\service\UserService;
 use PHPUnit\Framework\TestCase;
 
 class LearningGroupServiceTest extends TestCase
@@ -14,7 +17,12 @@ class LearningGroupServiceTest extends TestCase
     private $learningGroupRepository;
 
     /**
-     * @var \HAWMS\service\LearningGroupService
+     * @var UserService
+     */
+    private $userService;
+
+    /**
+     * @var LearningGroupService
      */
     private $learningGroupService;
 
@@ -22,7 +30,8 @@ class LearningGroupServiceTest extends TestCase
     {
         $this->learningGroupRepository = $this->createMock(LearningGroupRepository::class);
         $this->lectureService = $this->createMock(LectureService::class);
-        $this->learningGroupService = new \HAWMS\service\LearningGroupService($this->learningGroupRepository, $this->lectureService);
+        $this->userService = $this->createMock(UserService::class);
+        $this->learningGroupService = new LearningGroupService($this->learningGroupRepository, $this->lectureService, $this->userService);
     }
 
     public function testWhenLectureCourseIdIsSet_ShouldCreateLearningGroupWithLectureId()
@@ -50,6 +59,7 @@ class LearningGroupServiceTest extends TestCase
     public function testWhenLectureCourseIdIsNotSet_ShouldCreateLecture()
     {
         $data = [
+            'userId' => 1234,
             'lectureName' => 'Programmieren 1',
             'location' => 'E62'
         ];
@@ -58,7 +68,6 @@ class LearningGroupServiceTest extends TestCase
         $learningGroup = new LearningGroup();
         $this->lectureService->expects($this->once())
             ->method('createLecture')
-            ->with($data['lectureName'])
             ->willReturn($lecture);
         $this->learningGroupRepository->expects($this->once())
             ->method('save')
@@ -67,6 +76,8 @@ class LearningGroupServiceTest extends TestCase
                     && $learningGroup->getLocation() == 'E62';
             }))
             ->willReturn($learningGroup);
+        $this->userService->method('getUserById')
+            ->willReturn(new User());
 
         $actualLearningGroup = $this->learningGroupService->createLearningGroup($data);
 

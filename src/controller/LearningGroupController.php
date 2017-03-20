@@ -30,9 +30,14 @@ class LearningGroupController extends Controller
     {
         if ($request->isPost()) {
             $data = $request->getBody();
+            $lectureId = null;
+            if (isset($data['lectureId']) && $data['lectureId'] != -1) {
+                $lectureId = $data['lectureId'];
+            }
             $this->learningGroupService->createLearningGroup([
-                'lectureCourseId' => $data['lectureCourseId'],
-                'lectureCourseName' => $data['lectureCourseName'],
+                'userId' => $userId,
+                'lectureId' => $lectureId,
+                'lectureName' => $data['lectureName'],
                 'location' => $data['location']
             ]);
         }
