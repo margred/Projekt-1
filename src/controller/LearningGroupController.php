@@ -4,7 +4,7 @@ namespace HAWMS\controller;
 
 use HAWMS\http\Request;
 use HAWMS\service\LearningGroupService;
-use HAWMS\service\LectureCourseService;
+use HAWMS\service\LectureService;
 
 class LearningGroupController extends Controller
 {
@@ -13,10 +13,10 @@ class LearningGroupController extends Controller
 
     /**
      * LearningGroupController constructor.
-     * @param LectureCourseService $lectureCourseService
+     * @param LectureService $lectureCourseService
      * @param LearningGroupService $learningGroupService
      */
-    public function __construct(LectureCourseService $lectureCourseService, LearningGroupService $learningGroupService)
+    public function __construct(LectureService $lectureCourseService, LearningGroupService $learningGroupService)
     {
         $this->lectureCourseService = $lectureCourseService;
         $this->learningGroupService = $learningGroupService;
