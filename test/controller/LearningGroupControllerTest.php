@@ -3,16 +3,17 @@
 use HAWMS\controller\LearningGroupController;
 use HAWMS\http\Request;
 use HAWMS\model\LearningCourse;
+use HAWMS\model\User;
 use HAWMS\service\LearningGroupService;
-use HAWMS\service\LectureCourseService;
+use HAWMS\service\LectureService;
 use PHPUnit\Framework\TestCase;
 
 class LearningGroupControllerTest extends TestCase
 {
     /**
-     * @var LectureCourseService
+     * @var LectureService
      */
-    private $lectureCourseService;
+    private $lectureService;
 
     /**
      * @var LearningGroupService
@@ -26,9 +27,9 @@ class LearningGroupControllerTest extends TestCase
 
     protected function setUp()
     {
-        $this->lectureCourseService = $this->createMock(LectureCourseService::class);
+        $this->lectureService = $this->createMock(LectureService::class);
         $this->learningGroupService = $this->createMock(LearningGroupService::class);
-        $this->learningGroupController = new LearningGroupController($this->lectureCourseService, $this->learningGroupService);
+        $this->learningGroupController = new LearningGroupController($this->lectureService, $this->learningGroupService);
     }
 
     public function testShouldReturnViewModel()
@@ -40,7 +41,7 @@ class LearningGroupControllerTest extends TestCase
         $learningCourses = [
             new LearningCourse()
         ];
-        $this->lectureCourseService->expects($this->once())
+        $this->lectureService->expects($this->once())
             ->method('getLearningCoursesForUserId')
             ->with($userId)
             ->willReturn($learningCourses);
@@ -58,16 +59,16 @@ class LearningGroupControllerTest extends TestCase
         $request = new Request([
             'method' => 'POST',
             'body' => [
-                'lectureCourseId' => 23,
-                'lectureCourseName' => 'Programmieren 1',
+                'lectureId' => 23,
+                'lectureName' => 'Programmieren 1',
                 'location' => 'Raum E62'
             ]
         ]);
         $this->learningGroupService->expects($this->once())
             ->method('createLearningGroup')
             ->with($this->callback(function ($createGroupParams) {
-                return isset($createGroupParams['lectureCourseId']) && $createGroupParams['lectureCourseId'] == 23 &&
-                    isset($createGroupParams['lectureCourseName']) && $createGroupParams['lectureCourseName'] == 'Programmieren 1' &&
+                return isset($createGroupParams['lectureId']) && $createGroupParams['lectureId'] == 23 &&
+                    isset($createGroupParams['lectureName']) && $createGroupParams['lectureName'] == 'Programmieren 1' &&
                     isset($createGroupParams['location']) && $createGroupParams['location'] = 'Raum E62';
             }));
 
