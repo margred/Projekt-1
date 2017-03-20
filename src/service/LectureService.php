@@ -4,22 +4,39 @@ namespace HAWMS\service;
 
 use HAWMS\exception\UserNotFoundException;
 use HAWMS\model\LearningCourse;
+use HAWMS\model\Lecture;
 use HAWMS\repository\LectureRepository;
 
 class LectureService
 {
-    private $lectureCourseRepository;
+    /**
+     * @var LectureRepository
+     */
+    private $lectureRepository;
+
+    /**
+     * @var UserService
+     */
     private $userService;
 
     /**
      * LectureCourseService constructor.
-     * @param LectureRepository $lectureCourseRepository
+     * @param LectureRepository $lectureRepository
      * @param UserService $userService
      */
-    public function __construct(LectureRepository $lectureCourseRepository, UserService $userService)
+    public function __construct(LectureRepository $lectureRepository, UserService $userService)
     {
-        $this->lectureCourseRepository = $lectureCourseRepository;
+        $this->lectureRepository = $lectureRepository;
         $this->userService = $userService;
+    }
+
+    /**
+     * @param Lecture $lecture
+     * @return Lecture
+     */
+    public function createLecture(Lecture $lecture)
+    {
+        return $this->lectureRepository->save($lecture);
     }
 
     /**
@@ -33,7 +50,7 @@ class LectureService
         if (!$user) {
             throw new UserNotFoundException('User <' . $userId . '> not found');
         }
-        return $this->lectureCourseRepository->findAllByUniversityIdAndCourseId(
+        return $this->lectureRepository->findAllByUniversityIdAndCourseId(
             $user->getUniversityId(),
             $user->getCourseId());
     }
