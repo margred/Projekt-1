@@ -34,7 +34,9 @@ class LearningGroupControllerTest extends TestCase
     public function testShouldReturnViewModel()
     {
         $userId = 2345;
-        $_SESSION['userId'] = $userId;
+        $user = new User();
+        $user->setId($userId);
+        $_SESSION['user'] = $user;
         $learningCourses = [
             new LearningCourse()
         ];

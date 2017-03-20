@@ -28,6 +28,7 @@ class LearningGroupController extends Controller
      */
     public function add(Request $request)
     {
+        $userId = $_SESSION['user']->getId();
         if ($request->isPost()) {
             $data = $request->getBody();
             $lectureId = null;
@@ -41,7 +42,6 @@ class LearningGroupController extends Controller
                 'location' => $data['location']
             ]);
         }
-        $userId = $_SESSION['userId'];
         return new ViewModel('learning-group-add', [
             'lectureCourses' => $this->lectureCourseService->getLearningCoursesForUserId($userId)
         ]);

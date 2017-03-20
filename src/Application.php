@@ -3,6 +3,7 @@
 namespace HAWMS;
 
 use HAWMS\auth\EmailPasswordAuthenticationProvider;
+use HAWMS\auth\SessionFilter;
 use HAWMS\controller\LearningGroupController;
 use HAWMS\controller\LoginController;
 use HAWMS\controller\UserRegistrationController;
@@ -13,12 +14,16 @@ use HAWMS\http\FilterChain;
 use HAWMS\http\Request;
 use HAWMS\http\Response;
 use HAWMS\repository\CourseRepository;
+use HAWMS\repository\LearningGroupRepository;
+use HAWMS\repository\LectureRepository;
 use HAWMS\repository\UniversityRepository;
 use HAWMS\repository\UserRepository;
 use HAWMS\routing\Route;
 use HAWMS\routing\Router;
 use HAWMS\routing\RouterRequestHandler;
 use HAWMS\service\CourseService;
+use HAWMS\service\LearningGroupService;
+use HAWMS\service\LectureService;
 use HAWMS\service\PasswordHashEncoder;
 use HAWMS\service\UniversityService;
 use HAWMS\service\UserService;
@@ -42,6 +47,7 @@ class Application
         $viewRenderer->setLayoutPath(__DIR__ . '/template/layout/default.php');
         $dispatch = new Dispatcher($routerRequestHandler, $viewResolver, $viewRenderer);
         $this->filterChain = new FilterChain();
+        $this->filterChain->addFilter(new SessionFilter());
         $this->filterChain->addFilter(new DispatcherFilter($dispatch));
     }
 
@@ -80,11 +86,13 @@ class Application
         $universityService = $this->getUniversityService($connection);
         $courseService = $this->getCourseService($connection);
         $userService = $this->getUserService($connection, $passwordEncoder);
+        $lectureService = $this->getLectureService($connection, $userService);
+        $learningGroupService = $this->getLearningGroupService($connection, $lectureService, $userService);
         $emailPasswordAuthenticationProvider = new EmailPasswordAuthenticationProvider($userService, $passwordEncoder);
         $controller = [
             'UserRegistrationController' => $this->getUserRegistrationController($userService, $universityService, $courseService),
             'LoginController' => $this->getLoginController($emailPasswordAuthenticationProvider),
-            'LearningGroupController' => $this->getLearningGroupController()
+            'LearningGroupController' => $this->getLearningGroupController($lectureService, $learningGroupService)
         ];
         return new ControllerInvoker($controller);
     }
@@ -153,8 +161,20 @@ class Application
         return $userService;
     }
 
-    private function getLearningGroupController()
+    private function getLearningGroupController(LectureService $lectureCourseService, LearningGroupService $learningGroupService)
     {
-        return new LearningGroupController();
+        return new LearningGroupController($lectureCourseService, $learningGroupService);
+    }
+
+    private function getLectureService(PDO $connection, UserService $userService)
+    {
+        $lectureCourseRepository = new LectureRepository($connection);
+        return new LectureService($lectureCourseRepository, $userService);
+    }
+
+    private function getLearningGroupService(PDO $connection, LectureService $lectureService, UserService $userService)
+    {
+        $learningGroupRepository = new LearningGroupRepository($connection);
+        return new LearningGroupService($learningGroupRepository, $lectureService, $userService);
     }
 }

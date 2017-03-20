@@ -21,7 +21,6 @@ class LoginController extends Controller
 
     public function login()
     {
-        session_start();
         $logsession = 0;
 
         if (!isset($_SESSION["username"]) and !isset($_GET["page"])) {
@@ -34,8 +33,7 @@ class LoginController extends Controller
             $authentication = new EmailPasswordAuthentication($user, $passwort);
             try {
                 $user = $this->emailPasswordAuthenticationProvider->authenticate($authentication);
-                $_SESSION["id"] = $user->getId();
-                $_SESSION["username"] = $user->getEmail();
+                $_SESSION['user'] = $user;
                 return new ViewModel('login_success');
             } catch (BadCredentialsException $e) {
                 return new ViewModel('login_error');
