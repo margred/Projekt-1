@@ -46,4 +46,13 @@ class UserService
         }
         return $user;
     }
+
+    /**
+     * @param int $userId
+     * @return User
+     */
+    public function getUserById(int $userId)
+    {
+        return $this->userRepository->findById($userId);
+    }
 }
