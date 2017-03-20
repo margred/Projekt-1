@@ -44,4 +44,12 @@ class LearningGroupService
         $learningGroup->setLocation($data['location']);
         return $this->learningGroupRepository->save($learningGroup);
     }
+
+    public function getAvailableLearningGroups($userId)
+    {
+        $user = $this->userService->getUserById($userId);
+        return $this->learningGroupRepository->findAllByUniversityIdAndCourseId(
+            $user->getUniversityId(),
+            $user->getCourseId());
+    }
 }

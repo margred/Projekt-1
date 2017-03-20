@@ -6,6 +6,7 @@ class LearningGroup
 {
     private $id;
     private $lectureId;
+    private $lecture;
 
     /**
      * @return int
@@ -32,6 +33,22 @@ class LearningGroup
     }
 
     /**
+     * @return mixed
+     */
+    public function getLecture()
+    {
+        return $this->lecture;
+    }
+
+    /**
+     * @param mixed $lecture
+     */
+    public function setLecture($lecture)
+    {
+        $this->lecture = $lecture;
+    }
+
+    /**
      * @return string
      */
     public function getLocation()
@@ -46,5 +63,6 @@ class LearningGroup
     {
         $this->location = $location;
     }
+
     private $location;
 }

@@ -76,6 +76,10 @@ class Application
             'controller' => 'LearningGroupController',
             'action' => 'add'
         ]));
+        $router->addRoute(new Route('/^\/learning-group$/', [
+            'controller' => 'LearningGroupController',
+            'action' => 'index'
+        ]));
         return $router;
     }
 

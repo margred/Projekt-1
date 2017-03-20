@@ -41,4 +41,14 @@ class LearningGroupRepository
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'HAWMS\model\LearningGroup');
         return $stmt->fetch();
     }
+
+    public function findAllByUniversityIdAndCourseId($universityId, $courseId)
+    {
+        $stmt = $this->connection->prepare('SELECT *, l.name as lecture FROM learning_groups lg INNER JOIN lectures l ON l.id = lg.lecture_id WHERE l.university_id = :universityId AND l.course_id = :courseId');
+        $stmt->bindValue(':universityId', $universityId, PDO::PARAM_INT);
+        $stmt->bindValue(':courseId', $courseId, PDO::PARAM_STR);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'HAWMS\model\LearningGroup');
+        return $stmt->fetchAll();
+    }
 }
