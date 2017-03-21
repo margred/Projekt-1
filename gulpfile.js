@@ -25,5 +25,4 @@ gulp.task('serve', ['sass'], function () {
 
 gulp.task('default', ['serve'], function () {
     gulp.watch('scss/**/*.scss', ['sass', browserSync.reload]);
-    gulp.watch('src/**/*.php', [browserSync.reload]);
 });
