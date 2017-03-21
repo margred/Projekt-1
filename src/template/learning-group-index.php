@@ -1,4 +1,7 @@
-<h1>Available learning groups</h1>
+<h1 class="title title--hasButton">
+    Available learning groups
+    <a href="/learning-group/add" class="button">Create</a>
+</h1>
 <?php foreach ($learningGroups as $learningGroup) : ?>
     <div class="card">
         <div class="card__content">

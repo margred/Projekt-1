@@ -51,6 +51,7 @@
 }
 
 .button {
+    display: inline-block;
     padding-left: 16px;
     padding-right: 16px;
 
@@ -59,10 +60,12 @@
     border: none;
 
     color: #000;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 500;
     line-height: 36px;
     text-transform: uppercase;
+    text-decoration: none;
 
     cursor: pointer;
 }
