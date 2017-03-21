@@ -2,7 +2,10 @@
 
 namespace HAWMS;
 
+use HAWMS\auth\EmailPasswordAuthenticationProvider;
+use HAWMS\controller\LoginController;
 use HAWMS\controller\UserRegistrationController;
+use HAWMS\http\ControllerInvoker;
 use HAWMS\http\Dispatcher;
 use HAWMS\http\DispatcherFilter;
 use HAWMS\http\FilterChain;
@@ -11,7 +14,11 @@ use HAWMS\http\Response;
 use HAWMS\repository\CourseRepository;
 use HAWMS\repository\UniversityRepository;
 use HAWMS\repository\UserRepository;
+use HAWMS\routing\Route;
+use HAWMS\routing\Router;
+use HAWMS\routing\RouterRequestHandler;
 use HAWMS\service\CourseService;
+use HAWMS\service\PasswordHashEncoder;
 use HAWMS\service\UniversityService;
 use HAWMS\service\UserService;
 use HAWMS\view\ViewRenderer;
@@ -28,10 +35,11 @@ class Application
      */
     public function __construct()
     {
+        $routerRequestHandler = new RouterRequestHandler($this->getRouter(), $this->getControllerInvoker());
         $viewResolver = new ViewResolver(__DIR__ . '/template');
         $viewRenderer = new ViewRenderer();
-        $userRegistrationController = $this->getUserRegistrationController();
-        $dispatch = new Dispatcher($viewResolver, $viewRenderer, $userRegistrationController);
+        $viewRenderer->setLayoutPath(__DIR__ . '/template/layout/default.php');
+        $dispatch = new Dispatcher($routerRequestHandler, $viewResolver, $viewRenderer);
         $this->filterChain = new FilterChain();
         $this->filterChain->addFilter(new DispatcherFilter($dispatch));
     }
@@ -46,16 +54,43 @@ class Application
         return $this->filterChain->filter($request, $response);
     }
 
-    private function getUserRegistrationController()
+    private function getRouter()
     {
+        $router = new Router();
+        $router->addRoute(new Route('/\/signup/', [
+            'controller' => 'UserRegistrationController',
+            'action' => 'register'
+        ]));
+        $router->addRoute(new Route('/\/login/', [
+            'controller' => 'LoginController',
+            'action' => 'login'
+        ]));
+        return $router;
+    }
+
+    private function getControllerInvoker()
+    {
+        $passwordEncoder = $this->getPasswordEncoder();
         $connection = $this->getDatabaseConnection();
-        $userRepository = new UserRepository($connection);
-        $userService = new UserService($userRepository);
-        $universityRepository = new UniversityRepository($connection);
-        $universityService = new UniversityService($universityRepository);
-        $courseRepository = new CourseRepository($connection);
-        $courseService = new CourseService($courseRepository);
+        $universityService = $this->getUniversityService($connection);
+        $courseService = $this->getCourseService($connection);
+        $userService = $this->getUserService($connection, $passwordEncoder);
+        $emailPasswordAuthenticationProvider = new EmailPasswordAuthenticationProvider($userService, $passwordEncoder);
+        $controller = [
+            'UserRegistrationController' => $this->getUserRegistrationController($userService, $universityService, $courseService),
+            'LoginController' => $this->getLoginController($emailPasswordAuthenticationProvider)
+        ];
+        return new ControllerInvoker($controller);
+    }
+
+    private function getUserRegistrationController(UserService $userService, UniversityService $universityService, CourseService $courseService)
+    {
         return new UserRegistrationController($userService, $universityService, $courseService);
+    }
+
+    private function getLoginController(EmailPasswordAuthenticationProvider $emailPasswordAuthenticationProvider)
+    {
+        return new LoginController($emailPasswordAuthenticationProvider);
     }
 
     public function getDatabaseConnection()
@@ -67,5 +102,48 @@ class Application
         } catch (PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
         }
+    }
+
+    /**
+     * @return PasswordHashEncoder
+     */
+    private function getPasswordEncoder(): PasswordHashEncoder
+    {
+        $passwordEncoder = new PasswordHashEncoder();
+        return $passwordEncoder;
+    }
+
+    /**
+     * @param $connection
+     * @return UniversityService
+     */
+    private function getUniversityService($connection): UniversityService
+    {
+        $universityRepository = new UniversityRepository($connection);
+        $universityService = new UniversityService($universityRepository);
+        return $universityService;
+    }
+
+    /**
+     * @param $connection
+     * @return CourseService
+     */
+    private function getCourseService($connection): CourseService
+    {
+        $courseRepository = new CourseRepository($connection);
+        $courseService = new CourseService($courseRepository);
+        return $courseService;
+    }
+
+    /**
+     * @param $connection
+     * @param $passwordEncoder
+     * @return UserService
+     */
+    private function getUserService($connection, $passwordEncoder): UserService
+    {
+        $userRepository = new UserRepository($connection);
+        $userService = new UserService($passwordEncoder, $userRepository);
+        return $userService;
     }
 }
