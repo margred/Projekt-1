@@ -10,6 +10,7 @@
     <div class="layout__topbar topbar">
         <div class="topbar__logo">Grouper</div>
         <nav class="navigation">
+            <a href="/contact" class="navigation__link">Contact</a>
             <?php if (!$this->isLoggedIn()): ?>
                 <a href="signup" class="navigation__link">Sign up</a>
                 <a href="login" class="navigation__link">Login</a>

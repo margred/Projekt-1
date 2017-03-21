@@ -4,6 +4,7 @@ namespace HAWMS;
 
 use HAWMS\auth\EmailPasswordAuthenticationProvider;
 use HAWMS\auth\SessionFilter;
+use HAWMS\controller\ContactController;
 use HAWMS\controller\LearningGroupController;
 use HAWMS\controller\LoginController;
 use HAWMS\controller\ProfileController;
@@ -85,6 +86,10 @@ class Application
             'controller' => 'ProfileController',
             'action' => 'profile'
         ]));
+        $router->addRoute(new Route('/^\/contact$/', [
+            'controller' => 'ContactController',
+            'action' => 'contact'
+        ]));
         return $router;
     }
 
@@ -102,7 +107,8 @@ class Application
             'UserRegistrationController' => $this->getUserRegistrationController($userService, $universityService, $courseService),
             'LoginController' => $this->getLoginController($emailPasswordAuthenticationProvider),
             'LearningGroupController' => $this->getLearningGroupController($lectureService, $learningGroupService),
-            'ProfileController' => $this->getProfileController($learningGroupService)
+            'ProfileController' => $this->getProfileController($learningGroupService),
+            'ContactController' => $this->getContactController()
         ];
         return new ControllerInvoker($controller);
     }
@@ -191,5 +197,10 @@ class Application
     private function getProfileController(LearningGroupService $learningGroupService)
     {
         return new ProfileController($learningGroupService);
+    }
+
+    private function getContactController()
+    {
+        return new ContactController();
     }
 }
