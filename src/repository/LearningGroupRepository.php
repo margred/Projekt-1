@@ -51,4 +51,12 @@ class LearningGroupRepository
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'HAWMS\model\LearningGroup');
         return $stmt->fetchAll();
     }
+
+    public function addUser($learningGroupId, $userId)
+    {
+        $stmt = $this->connection->prepare('INSERT INTO learning_groups_users(learning_group_id, user_id) VALUES (:learningGroupId, :userId)');
+        $stmt->bindValue(':learningGroupId', $learningGroupId, PDO::PARAM_INT);
+        $stmt->bindValue(':userId', $userId, PDO::PARAM_STR);
+        return $stmt->execute();
+    }
 }

@@ -22,9 +22,13 @@ class LearningGroupController extends Controller
         $this->learningGroupService = $learningGroupService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $userId = $_SESSION['user']->getId();
+        if ($request->isPost()) {
+            $data = $request->getBody();
+            $this->learningGroupService->addUser($data['learningGroupId'], $userId);
+        }
         return new ViewModel('learning-group-index', [
             'learningGroups' => $this->learningGroupService->getAvailableLearningGroups($userId)
         ]);

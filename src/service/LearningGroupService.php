@@ -52,4 +52,9 @@ class LearningGroupService
             $user->getUniversityId(),
             $user->getCourseId());
     }
+
+    public function addUser($learningGroupId, $userId)
+    {
+        return $this->learningGroupRepository->addUser($learningGroupId, $userId);
+    }
 }

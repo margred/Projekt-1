@@ -11,8 +11,8 @@
                 <div class="card__row_value"><?= $learningGroup->getLocation() ?></div>
             </div>
         </div>
-        <form>
-            <input type="hidden" value="<?= $learningGroup->getId() ?>">
+        <form method="post">
+            <input type="hidden" name="learningGroupId" value="<?= $learningGroup->getId() ?>">
             <button class="button card__button">Join</button>
         </form>
     </div>
