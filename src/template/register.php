@@ -1,4 +1,5 @@
 <div class="registration">
+    <h1>Register</h1>
     <form method="post" class="registration__form">
         <div class="input-group">
             <label class="label">Email</label>
