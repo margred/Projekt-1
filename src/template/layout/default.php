@@ -22,8 +22,15 @@
             <?php endif; ?>
         </nav>
     </div>
-    <div class="layout__content">
-        <?= $this->content() ?>
+    <div class="layout__container">
+        <?php if ($this->isLoggedIn()): ?>
+            <div class="layout__sidebar">
+                <?php include dirname(__DIR__) . '/components/calendar.php'; ?>
+            </div>
+        <?php endif; ?>
+        <div class="layout__content">
+            <?= $this->content() ?>
+        </div>
     </div>
 </div>
 </body>

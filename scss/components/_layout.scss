@@ -8,12 +8,24 @@
         flex: none;
     }
 
+    &__container {
+        display: flex;
+    }
+
     &__content {
         position: relative;
         overflow-y: auto;
-        flex: 1 1 auto;
+        flex: 5 1 auto;
 
         height: 100%;
+        padding-top: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    &__sidebar {
+        flex: 1;
+
         padding-top: 20px;
         padding-left: 40px;
         padding-right: 40px;

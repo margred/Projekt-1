@@ -1,0 +1,32 @@
+.calendar {
+
+    &__title {
+        text-align: center;
+    }
+
+    &__table {
+        width: 90%;
+        border-collapse: collapse;
+        text-align: center;
+        vertical-align: center;
+        border: 1px solid black;
+
+        & td,
+        & th {
+            padding: 5px;
+        }
+
+        & td {
+            border: 1px solid black;
+        }
+
+        & th {
+            height: 40px;
+            background-color: #b3cccc;
+        }
+    }
+
+    .today {
+        background: #669999;
+    }
+}
