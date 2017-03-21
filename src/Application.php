@@ -70,6 +70,10 @@ class Application
             'controller' => 'UserRegistrationController',
             'action' => 'register'
         ]));
+        $router->addRoute(new Route('/^\/$/', [
+            'controller' => 'UserRegistrationController',
+            'action' => 'register'
+        ]));
         $router->addRoute(new Route('/^\/login$/', [
             'controller' => 'LoginController',
             'action' => 'login'
