@@ -44,13 +44,16 @@ class UserRegistrationController extends Controller
      */
     public function register(Request $request)
     {
+        $successMsg = null;
         if ($request->isPost()) {
             $user = $this->makeUser($request);
             $this->userService->register($user);
+            $successMsg = 'You are registered now. Please login.';
         }
         $universities = $this->universityService->getUniversities();
         $courses = $this->courseService->getCourses();
         return new ViewModel('register', [
+            'successMsg' => $successMsg,
             'universities' => $universities,
             'courses' => $courses
         ]);

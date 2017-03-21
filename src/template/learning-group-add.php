@@ -1,4 +1,9 @@
 <h1>Create new learning group</h1>
+<?php if($successMsg): ?>
+    <div class="alert alert--success">
+        <?= $successMsg ?>
+    </div>
+<?php endif; ?>
 <form method="post">
     <div class="input-group">
         <label class="label">Course</label>

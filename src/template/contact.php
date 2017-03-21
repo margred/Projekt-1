@@ -1,7 +1,15 @@
 <div class="contact">
     <h1>Contact</h1>
-    <div style="color: green;"><?php echo $success; ?></div><br>
-    <div style="color: red;"><?php echo $errors; ?></div><br>
+    <?php if($success): ?>
+        <div class="alert alert--success">
+            <?= $success ?>
+        </div>
+    <?php endif; ?>
+    <?php if($errors): ?>
+        <div class="alert alert--error">
+            <?= $errors ?>
+        </div>
+    <?php endif; ?>
     <form method="post" class="contact__form">
         <div class="input-group">
             <label class="label">Name</label>

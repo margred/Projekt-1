@@ -1,5 +1,10 @@
 <div class="registration">
     <h1>Register</h1>
+    <?php if($successMsg): ?>
+        <div class="alert alert--success">
+            <?= $successMsg ?>
+        </div>
+    <?php endif; ?>
     <form method="post" class="registration__form">
         <div class="input-group">
             <label class="label">Email</label>

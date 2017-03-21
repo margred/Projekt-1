@@ -41,6 +41,7 @@ class LearningGroupController extends Controller
     public function add(Request $request)
     {
         $userId = $_SESSION['user']->getId();
+        $successMsg = null;
         if ($request->isPost()) {
             $data = $request->getBody();
             $lectureId = null;
@@ -53,8 +54,10 @@ class LearningGroupController extends Controller
                 'lectureName' => $data['lectureName'],
                 'location' => $data['location']
             ]);
+            $successMsg = 'Learning group successfully created';
         }
         return new ViewModel('learning-group-add', [
+            'successMsg' => $successMsg,
             'lectureCourses' => $this->lectureCourseService->getLearningCoursesForUserId($userId)
         ]);
     }
