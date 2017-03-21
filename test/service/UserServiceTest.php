@@ -112,4 +112,18 @@ class UserServiceTest extends \PHPUnit\Framework\TestCase
 
         $this->userService->loadUserByEmail($email);
     }
+
+    public function testShouldReturnFoundUser()
+    {
+        $userId = 2345;
+        $user = new User();
+        $this->userRepository->expects($this->once())
+            ->method('findById')
+            ->with($userId)
+            ->willReturn($user);
+
+        $actualUser = $this->userService->getUserById($userId);
+
+        $this->assertSame($user, $actualUser);
+    }
 }

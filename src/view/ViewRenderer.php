@@ -49,4 +49,9 @@ class ViewRenderer
     {
         return $this->content;
     }
+
+    private function isLoggedIn()
+    {
+        return isset($_SESSION['user']) && $_SESSION['user'] != null;
+    }
 }

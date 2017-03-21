@@ -1,0 +1,9 @@
+.title {
+    margin-bottom: 16px;
+
+    &--hasButton {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
