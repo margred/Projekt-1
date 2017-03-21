@@ -6,6 +6,7 @@ use HAWMS\auth\EmailPasswordAuthenticationProvider;
 use HAWMS\auth\SessionFilter;
 use HAWMS\controller\LearningGroupController;
 use HAWMS\controller\LoginController;
+use HAWMS\controller\ProfileController;
 use HAWMS\controller\UserRegistrationController;
 use HAWMS\http\ControllerInvoker;
 use HAWMS\http\Dispatcher;
@@ -80,6 +81,10 @@ class Application
             'controller' => 'LearningGroupController',
             'action' => 'index'
         ]));
+        $router->addRoute(new Route('/^\/profile$/', [
+            'controller' => 'ProfileController',
+            'action' => 'profile'
+        ]));
         return $router;
     }
 
@@ -96,7 +101,8 @@ class Application
         $controller = [
             'UserRegistrationController' => $this->getUserRegistrationController($userService, $universityService, $courseService),
             'LoginController' => $this->getLoginController($emailPasswordAuthenticationProvider),
-            'LearningGroupController' => $this->getLearningGroupController($lectureService, $learningGroupService)
+            'LearningGroupController' => $this->getLearningGroupController($lectureService, $learningGroupService),
+            'ProfileController' => $this->getProfileController($learningGroupService)
         ];
         return new ControllerInvoker($controller);
     }
@@ -180,5 +186,10 @@ class Application
     {
         $learningGroupRepository = new LearningGroupRepository($connection);
         return new LearningGroupService($learningGroupRepository, $lectureService, $userService);
+    }
+
+    private function getProfileController(LearningGroupService $learningGroupService)
+    {
+        return new ProfileController($learningGroupService);
     }
 }

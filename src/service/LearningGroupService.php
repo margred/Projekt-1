@@ -57,4 +57,9 @@ class LearningGroupService
     {
         return $this->learningGroupRepository->addUser($learningGroupId, $userId);
     }
+
+    public function getLearningGroupsByUser($userId)
+    {
+        return $this->learningGroupRepository->findAllByUserId($userId);
+    }
 }

@@ -59,4 +59,13 @@ class LearningGroupRepository
         $stmt->bindValue(':userId', $userId, PDO::PARAM_STR);
         return $stmt->execute();
     }
+
+    public function findAllByUserId($userId)
+    {
+        $stmt = $this->connection->prepare('SELECT lg.*, l.name as lecture FROM learning_groups lg INNER JOIN lectures l ON l.id = lg.lecture_id INNER JOIN learning_groups_users lgu ON lgu.learning_group_id = lg.id WHERE lgu.user_id = :userId');
+        $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'HAWMS\model\LearningGroup');
+        return $stmt->fetchAll();
+    }
 }
