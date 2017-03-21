@@ -8,7 +8,7 @@
 </head>
 <div class="layout">
     <div class="layout__topbar topbar">
-        <div class="topbar__logo">Projektname</div>
+        <div class="topbar__logo">Grouper</div>
         <nav class="navigation">
             <?php if (!$this->isLoggedIn()): ?>
                 <a href="signup" class="navigation__link">Sign up</a>
