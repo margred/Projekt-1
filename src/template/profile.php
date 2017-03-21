@@ -2,7 +2,6 @@
     Profile
     <a href="/learning-group" class="button">Join</a>
 </h1>
-<?= var_dump($learningGroups) ?>
 <?php foreach ($learningGroups as $learningGroup) : ?>
     <div class="card">
         <div class="card__content">
