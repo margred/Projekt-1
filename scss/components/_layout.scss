@@ -1,0 +1,19 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+
+    &__topbar {
+        flex: none;
+    }
+
+    &__content {
+        position: relative;
+        overflow-y: auto;
+        flex: 1 1 auto;
+
+        height: 100%;
+        padding-top: 20px;
+    }
+}

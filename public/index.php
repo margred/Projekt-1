@@ -2,11 +2,11 @@
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-$sample = new \HAWMS\Sample();
-$sample->increase();
-echo sprintf("Increase Sample: %d<br>", $sample->getNum());
-$sample->increase();
-echo sprintf("Increase Sample: %d<br>", $sample->getNum());
-$sample->decrease();
-echo sprintf("Decrease Sample: %d<br>", $sample->getNum());
-echo sprintf("Result: %d\n", $sample->getNum());
+use HAWMS\Application;
+use HAWMS\http\Server;
+use HAWMS\http\ServerContext;
+
+$context = new ServerContext();
+$application = new Application();
+$server = new Server($context, $application);
+$server->run();
