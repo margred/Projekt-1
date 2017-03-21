@@ -47,10 +47,7 @@ class LearningGroupService
 
     public function getAvailableLearningGroups($userId)
     {
-        $user = $this->userService->getUserById($userId);
-        return $this->learningGroupRepository->findAllByUniversityIdAndCourseId(
-            $user->getUniversityId(),
-            $user->getCourseId());
+        return $this->learningGroupRepository->findAvailableLearningGroupsByUserId($userId);
     }
 
     public function addUser($learningGroupId, $userId)

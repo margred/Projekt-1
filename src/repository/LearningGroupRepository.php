@@ -52,6 +52,15 @@ class LearningGroupRepository
         return $stmt->fetchAll();
     }
 
+    public function findAvailableLearningGroupsByUserId($userId)
+    {
+        $stmt = $this->connection->prepare('SELECT lg.*, l.name as lecture FROM learning_groups lg INNER JOIN lectures l ON l.id = lg.lecture_id WHERE lg.id NOT IN (SELECT lgu.learning_group_id FROM learning_groups_users lgu WHERE lgu.user_id = :userId)');
+        $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'HAWMS\model\LearningGroup');
+        return $stmt->fetchAll();
+    }
+
     public function addUser($learningGroupId, $userId)
     {
         $stmt = $this->connection->prepare('INSERT INTO learning_groups_users(learning_group_id, user_id) VALUES (:learningGroupId, :userId)');
